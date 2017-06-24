@@ -24,13 +24,13 @@ environments:
             dbCreate: update
             username: awsuser
             password: 'mypassword'
-            url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com:/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
+            url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
     production:
         dataSource:
             dbCreate: update
             username: awsuser
             password: 'mypassword'
-            url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com:/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
+            url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
             properties:
                 jmxEnabled: true
                 initialSize: 5
