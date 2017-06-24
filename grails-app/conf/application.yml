@@ -22,13 +22,15 @@ environments:
     test:
         dataSource:
             dbCreate: update
-            password: 'root'
-            url: jdbc:mysql://localhost:3306/donar?zeroDateTimeBehavior=convertToNull
+            username: awsuser
+            password: 'mypassword'
+            url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com:/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
     production:
         dataSource:
             dbCreate: update
-            password: 'root'
-            url: jdbc:mysql://localhost:3306/donar?zeroDateTimeBehavior=convertToNull
+            username: awsuser
+            password: 'mypassword'
+            url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com:/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
             properties:
                 jmxEnabled: true
                 initialSize: 5
