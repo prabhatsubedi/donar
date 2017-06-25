@@ -32,23 +32,22 @@ environments:
             password: 'mypassword'
             url: jdbc:mysql://mydbinstance.c4tw9un69jcy.us-west-2.rds.amazonaws.com/donar?zeroDateTimeBehavior=convertToNull&useSSL=false
             properties:
-                jmxEnabled: true
-                initialSize: 5
                 maxActive: 50
-                minIdle: 5
                 maxIdle: 25
+                minIdle: 5
+                initialSize: 5
                 maxWait: 10000
-                maxAge: 600000
-                timeBetweenEvictionRunsMillis: 5000
-                minEvictableIdleTimeMillis: 60000
-                validationQuery: SELECT 1
-                validationQueryTimeout: 3
-                validationInterval: 15000
+                #removeAbandoned: true
+                #removeAbandonedTimeout: 400
+                logAbandoned: true
+                minEvictableIdleTimeMillis: 1800000
+                timeBetweenEvictionRunsMillis: 1800000
+                numTestsPerEvictionRun: 3
                 testOnBorrow: true
                 testWhileIdle: true
-                testOnReturn: false
-                jdbcInterceptors: ConnectionState
-                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+                testOnReturn: true
+                validationQuery: "SELECT 1"
+                jdbcInterceptors: "ConnectionState;StatementFinalizer;ResetAbandonedTimer"
 
 ---
 ---

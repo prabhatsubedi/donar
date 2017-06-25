@@ -1,3 +1,4 @@
+<%@ page import="java.math.MathContext" %>
 <!DOCTYPE html>
 <html>
 
@@ -459,26 +460,26 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <div>
-                                <span class="pull-right text-right">
+                                %{--<span class="pull-right text-right">
                                     <small>Average value of sales in the past month in: <strong>United states</strong></small>
                                     <br/>
                                     All sales: 162,862
-                                </span>
+                                </span>--}%
                                 <h3 class="font-bold no-margins">
-                                    Half-year revenue margin
+                                    Current Inventory Level
                                 </h3>
-                                <small>Sales marketing.</small>
+                                %{--<small>Sales marketing.</small>--}%
                             </div>
 
                             <div class="m-t-sm">
 
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <div>
                                             <canvas id="lineChart" height="114"></canvas>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    %{--<div class="col-md-4">
                                         <ul class="stat-list m-t-lg">
                                             <li>
                                                 <h2 class="no-margins">2,346</h2>
@@ -495,7 +496,7 @@
                                                 </div>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div>--}%
                                 </div>
 
                             </div>
@@ -503,11 +504,11 @@
                             <div class="m-t-md">
                                 <small class="pull-right">
                                     <i class="fa fa-clock-o"> </i>
-                                    Update on 16.07.2015
+                                    Update on 24.06.2017
                                 </small>
-                                <small>
+                                %{--<small>
                                     <strong>Analysis of sales:</strong> The value has been changed over time, and last month reached a level over $50,000.
-                                </small>
+                                </small>--}%
                             </div>
 
                         </div>
@@ -580,8 +581,8 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Custom responsive table </h5>
-                            <div class="ibox-tools">
+                            <h5>Forcasted Data</h5>
+                            %{--<div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
@@ -597,193 +598,110 @@
                                 <a class="close-link">
                                     <i class="fa fa-times"></i>
                                 </a>
-                            </div>
+                            </div>--}%
                         </div>
                         <div class="ibox-content">
                             <div class="row">
                                 <div class="col-sm-9 m-b-xs">
                                     <div data-toggle="buttons" class="btn-group">
-                                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
-                                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
-                                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
+                                        <label class="btn btn-sm btn-white" onclick="changeBloodProduct('rbc')"> <input type="radio" id="option1" name="options"> RBC </label>
+                                        <label class="btn btn-sm btn-white active" onclick="changeBloodProduct('platelet')" > <input type="radio" id="option2" name="options"> Platelets </label>
+                                        <label class="btn btn-sm btn-white" onclick="changeBloodProduct('plasma')" > <input type="radio" id="option3" name="options"> Plasma </label>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                                %{--<div class="col-sm-3">
                                     <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
                                         <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
-                                </div>
+                                </div>--}%
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-striped">
+                                <table id="blood-product-table" class="table table-striped">
                                     <thead>
                                     <tr>
-
                                         <th>#</th>
-                                        <th>Project </th>
-                                        <th>Name </th>
-                                        <th>Phone </th>
-                                        <th>Company </th>
-                                        <th>Completed </th>
-                                        <th>Task</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
+                                        <th>Blood Type</th>
+                                        <th>Forecasted Collections Day I</th>
+                                        <th>Forecasted Import </th>
+                                        <th>Forecasted Usage </th>
+                                        <th>Percentage Met Demand </th>
+                                        <th>Demand Gap</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td><span class="pie">3,1</span></td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td><span class="pie">3,1</span></td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
+                                    <tbody style="display: none"></tbody>
+                                    <tbody id="blood-product-rbc" style="display: none">
+                                        <g:each in="${rbcList}" var="bloodProduct" status="i">
+                                            <tr style="text-align: center">
+                                                <td>${i+1}</td>
+                                                <td>${bloodProduct.bloodType}</td>
+                                                <td>${bloodProduct.projectedCollectionDayI}</td>
+                                                <td>${bloodProduct.projectedWeeklyImport}</td>
+                                                <td>${bloodProduct.projectedUsageDaily}</td>
+                                                <td>
+                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
+                                                            bloodProduct.projectedUsageDaily}" format="#.##"/>
+                                                </td>
+                                                <td>
+                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
+                                                            bloodProduct.projectedUsageDaily}"/>
+                                                </td>
+                                            </tr>
+                                        </g:each>
+                                    </tbody>
+                                    <tbody id="blood-product-platelet">
+                                        <g:each in="${plateletList}" var="bloodProduct" status="i">
+                                            <tr style="text-align: center">
+                                                <td>${i+1}</td>
+                                                <td>${bloodProduct.bloodType}</td>
+                                                <td>${bloodProduct.projectedCollectionDayI}</td>
+                                                <td>${bloodProduct.projectedWeeklyImport}</td>
+                                                <td>${bloodProduct.projectedUsageDaily}</td>
+                                                <td>
+                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
+                                                            bloodProduct.projectedUsageDaily}" format="#.##"/>
+                                                </td>
+                                                <td>
+                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
+                                                            bloodProduct.projectedUsageDaily}"/>
+                                                </td>
+                                            </tr>
+                                        </g:each>
+                                    </tbody>
+                                    <tbody id="blood-product-plasma" style="display: none">
+                                        <g:each in="${plasmaList}" var="bloodProduct" status="i">
+                                            <tr style="text-align: center">
+                                                <td>${i+1}</td>
+                                                <td>${bloodProduct.bloodType}</td>
+                                                <td>${bloodProduct.projectedCollectionDayI}</td>
+                                                <td>${bloodProduct.projectedWeeklyImport}</td>
+                                                <td>${bloodProduct.projectedUsageDaily}</td>
+                                                <td>
+                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
+                                                            bloodProduct.projectedUsageDaily}" format="#.##"/>
+                                                </td>
+                                                <td>
+                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
+                                                            bloodProduct.projectedUsageDaily}"/>
+                                                </td>
+                                            </tr>
+                                        </g:each>
                                     </tbody>
                                 </table>
                             </div>
@@ -793,17 +711,10 @@
                 </div>
 
             </div>
-
-
         </div>
-
-
         <div class="footer">
-            <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
-            </div>
             <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2017
+                <strong>Copyright</strong> DR &copy; 2017
             </div>
         </div>
 
@@ -1228,6 +1139,13 @@
 <asset:javascript src="plugins/chartJs/Chart.min.js"/>
 
 <script>
+    function changeBloodProduct(type){
+        $('#blood-product-table tbody').hide();
+        $('#blood-product-'+type).show();
+    }
+</script>
+
+<script>
     $(document).ready(function() {
 
 
@@ -1269,23 +1187,31 @@
         });
 
         var lineData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"],
             datasets: [
                 {
-                    label: "Example dataset",
+                    label: "Platelet",
                     backgroundColor: "rgba(26,179,148,0.5)",
                     borderColor: "rgba(26,179,148,0.7)",
                     pointBackgroundColor: "rgba(26,179,148,1)",
                     pointBorderColor: "#fff",
-                    data: [48, 48, 60, 39, 56, 37, 30]
+                    data: [84, 34, 8, 4, 84, 34, 8, 4]
                 },
                 {
-                    label: "Example dataset",
+                    label: "RBC",
+                    backgroundColor: "rgba(255,0,0,0.5)",
+                    borderColor: "rgba(255,0,0,1)",
+                    pointBackgroundColor: "rgba(255,0,0,1)",
+                    pointBorderColor: "#fff",
+                    data: [350, 140, 35, 18, 350, 140, 35, 18]
+                },
+                {
+                    label: "Plasma",
                     backgroundColor: "rgba(220,220,220,0.5)",
                     borderColor: "rgba(220,220,220,1)",
                     pointBackgroundColor: "rgba(220,220,220,1)",
                     pointBorderColor: "#fff",
-                    data: [65, 59, 40, 51, 36, 25, 40]
+                    data: [280, 112, 28, 14, 280, 112, 28, 14]
                 }
             ]
         };

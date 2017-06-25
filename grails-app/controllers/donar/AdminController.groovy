@@ -10,8 +10,11 @@ class AdminController {
 
     def index(){
         def count = BloodInventory.countByBloodProduct("platelet");
-
-        [count: count]
+        def rbcList = BloodInventory.findAllByBloodProduct("rbc");
+        def plateletList = BloodInventory.findAllByBloodProduct("platelet");
+        def plasmaList = BloodInventory.findAllByBloodProduct("plasma");
+        println ("plateletList..."+plateletList)
+        [count: count, rbcList: rbcList, plateletList: plateletList, plasmaList: plasmaList]
     }
 
 }
