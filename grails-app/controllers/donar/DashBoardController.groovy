@@ -20,8 +20,6 @@ class DashBoardController {
             redirect(controller: 'admin')
             return
         }
-
-        render "User Dashboard Page....."
     }
 
 }

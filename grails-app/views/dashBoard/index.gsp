@@ -11,7 +11,7 @@
     <asset:stylesheet src="font-awesome/css/font-awesome.css"/>
 
     <asset:stylesheet src="animate.css"/>
-    <asset:stylesheet src="style"/>
+    <asset:stylesheet src="style.css"/>
 
 </head>
 

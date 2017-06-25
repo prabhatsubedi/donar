@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Dashboard v.4</title>
+    <title>DR+ Admin Dashboard</title>
 
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="font-awesome/css/font-awesome.css"/>
@@ -27,11 +27,11 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                        <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        <asset:image alt="image" class="img-circle" src="profile_small.jpg" />
                     </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                            </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Admin</strong>
+                            %{--</span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>--}%
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="profile.html">Profile</a></li>
                             <li><a href="contacts.html">Contacts</a></li>
@@ -45,16 +45,16 @@
                     </div>
                 </li>
                 <li class="active">
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Admin</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="index.html">Dashboard v.1</a></li>
+                        %{--<li><a href="index.html">Dashboard v.1</a></li>
                         <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-                        <li class="active"><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>--}%
+                        <li class="active"><a href="/">Dashboard</a></li>
+                        %{--<li><a href="dashboard_5.html">Dashboard v.5 </a></li>--}%
                     </ul>
                 </li>
-                <li>
+                %{--<<li>
                     <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
                 </li>
                 <li>
@@ -252,7 +252,7 @@
                 </li>
                 <li class="special_link">
                     <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
-                </li>
+                </li>--}%
             </ul>
 
         </div>
@@ -263,17 +263,17 @@
             <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                    %{--<form role="search" class="navbar-form-custom" action="search_results.html">
                         <div class="form-group">
                             <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
                         </div>
-                    </form>
+                    </form>--}%
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                        <span class="m-r-sm text-muted welcome-message">Welcome to DR+ Admin Dashboard.</span>
                     </li>
-                    <li class="dropdown">
+                    %{--<li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
                         </a>
@@ -367,7 +367,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li>--}%
 
 
                     <li>
@@ -375,11 +375,11 @@
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
-                    <li>
+                   %{-- <li>
                         <a class="right-sidebar-toggle">
                             <i class="fa fa-tasks"></i>
                         </a>
-                    </li>
+                    </li>--}%
                 </ul>
 
             </nav>
@@ -456,7 +456,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <div>
@@ -514,66 +514,64 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <span class="label label-warning pull-right">Data has changed</span>
-                            <h5>User activity</h5>
-                        </div>
                         <div class="ibox-content">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <small class="stats-label">Pages / Visit</small>
-                                    <h4>236 321.80</h4>
+                            <div>
+                                %{--<span class="pull-right text-right">
+                                    <small>Average value of sales in the past month in: <strong>United states</strong></small>
+                                    <br/>
+                                    All sales: 162,862
+                                </span>--}%
+                                <h3 class="font-bold no-margins">
+                                    Current Inventory Level
+                                </h3>
+                                %{--<small>Sales marketing.</small>--}%
+                            </div>
+
+                            <div class="m-t-sm">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <canvas id="lineChart1" height="114"></canvas>
+                                        </div>
+                                    </div>
+                                    %{--<div class="col-md-4">
+                                        <ul class="stat-list m-t-lg">
+                                            <li>
+                                                <h2 class="no-margins">2,346</h2>
+                                                <small>Total orders in period</small>
+                                                <div class="progress progress-mini">
+                                                    <div class="progress-bar" style="width: 48%;"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h2 class="no-margins ">4,422</h2>
+                                                <small>Orders in last month</small>
+                                                <div class="progress progress-mini">
+                                                    <div class="progress-bar" style="width: 60%;"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>--}%
                                 </div>
 
-                                <div class="col-xs-4">
-                                    <small class="stats-label">% New Visits</small>
-                                    <h4>46.11%</h4>
-                                </div>
-                                <div class="col-xs-4">
-                                    <small class="stats-label">Last week</small>
-                                    <h4>432.021</h4>
-                                </div>
                             </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <small class="stats-label">Pages / Visit</small>
-                                    <h4>643 321.10</h4>
-                                </div>
 
-                                <div class="col-xs-4">
-                                    <small class="stats-label">% New Visits</small>
-                                    <h4>92.43%</h4>
-                                </div>
-                                <div class="col-xs-4">
-                                    <small class="stats-label">Last week</small>
-                                    <h4>564.554</h4>
-                                </div>
+                            <div class="m-t-md">
+                                <small class="pull-right">
+                                    <i class="fa fa-clock-o"> </i>
+                                    Update on 24.06.2017
+                                </small>
+                                %{--<small>
+                                    <strong>Analysis of sales:</strong> The value has been changed over time, and last month reached a level over $50,000.
+                                </small>--}%
                             </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <small class="stats-label">Pages / Visit</small>
-                                    <h4>436 547.20</h4>
-                                </div>
 
-                                <div class="col-xs-4">
-                                    <small class="stats-label">% New Visits</small>
-                                    <h4>150.23%</h4>
-                                </div>
-                                <div class="col-xs-4">
-                                    <small class="stats-label">Last week</small>
-                                    <h4>124.990</h4>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="row">
@@ -719,7 +717,7 @@
         </div>
 
     </div>
-    <div id="right-sidebar">
+    %{--<div id="right-sidebar">
         <div class="sidebar-container">
 
             <ul class="nav nav-tabs navs-3">
@@ -1096,7 +1094,7 @@
 
 
 
-    </div>
+    </div>--}%
 </div>
 
 <!-- Mainly scripts -->
@@ -1223,6 +1221,10 @@
 
         var ctx = document.getElementById("lineChart").getContext("2d");
         new Chart(ctx, {type: 'line', data: lineData, options:lineOptions});
+
+
+        var ctx1 = document.getElementById("lineChart1").getContext("2d");
+        new Chart(ctx1, {type: 'line', data: lineData, options:lineOptions});
 
 
     });
