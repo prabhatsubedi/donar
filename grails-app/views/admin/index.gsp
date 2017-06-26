@@ -13,7 +13,7 @@
     <asset:stylesheet src="font-awesome/css/font-awesome.css"/>
 
     <!-- Morris -->
-    
+
     <asset:stylesheet src="plugins/morris/morris-0.4.3.min.css"/>
     <asset:stylesheet src="animate.css"/>
     <asset:stylesheet src="style"/>
@@ -31,14 +31,14 @@
                     </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Admin</strong>
-                            %{--</span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>--}%
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/logout">Logout</a></li>
-                        </ul>
+                                %{--</span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>--}%
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="contacts.html">Contacts</a></li>
+                                    <li><a href="mailbox.html">Mailbox</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/logout">Logout</a></li>
+                                </ul>
                     </div>
                     <div class="logo-element">
                         IN+
@@ -375,11 +375,11 @@
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
-                   %{-- <li>
-                        <a class="right-sidebar-toggle">
-                            <i class="fa fa-tasks"></i>
-                        </a>
-                    </li>--}%
+                    %{-- <li>
+                         <a class="right-sidebar-toggle">
+                             <i class="fa fa-tasks"></i>
+                         </a>
+                     </li>--}%
                 </ul>
 
             </nav>
@@ -460,15 +460,9 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <div>
-                                %{--<span class="pull-right text-right">
-                                    <small>Average value of sales in the past month in: <strong>United states</strong></small>
-                                    <br/>
-                                    All sales: 162,862
-                                </span>--}%
                                 <h3 class="font-bold no-margins">
-                                    Current Inventory Level
+                                    Current Inventory Level Percent
                                 </h3>
-                                %{--<small>Sales marketing.</small>--}%
                             </div>
 
                             <div class="m-t-sm">
@@ -476,41 +470,12 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
-                                            <canvas id="lineChart" height="114"></canvas>
+                                            <canvas id="currentInventoryPercent" height="114"></canvas>
                                         </div>
                                     </div>
-                                    %{--<div class="col-md-4">
-                                        <ul class="stat-list m-t-lg">
-                                            <li>
-                                                <h2 class="no-margins">2,346</h2>
-                                                <small>Total orders in period</small>
-                                                <div class="progress progress-mini">
-                                                    <div class="progress-bar" style="width: 48%;"></div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <h2 class="no-margins ">4,422</h2>
-                                                <small>Orders in last month</small>
-                                                <div class="progress progress-mini">
-                                                    <div class="progress-bar" style="width: 60%;"></div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>--}%
                                 </div>
 
                             </div>
-
-                            <div class="m-t-md">
-                                <small class="pull-right">
-                                    <i class="fa fa-clock-o"> </i>
-                                    Update on 24.06.2017
-                                </small>
-                                %{--<small>
-                                    <strong>Analysis of sales:</strong> The value has been changed over time, and last month reached a level over $50,000.
-                                </small>--}%
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -518,15 +483,9 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <div>
-                                %{--<span class="pull-right text-right">
-                                    <small>Average value of sales in the past month in: <strong>United states</strong></small>
-                                    <br/>
-                                    All sales: 162,862
-                                </span>--}%
                                 <h3 class="font-bold no-margins">
-                                    Current Inventory Level
+                                    Current Inventory Level Gap
                                 </h3>
-                                %{--<small>Sales marketing.</small>--}%
                             </div>
 
                             <div class="m-t-sm">
@@ -534,41 +493,12 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
-                                            <canvas id="lineChart1" height="114"></canvas>
+                                            <canvas id="currentInventoryGap" height="114"></canvas>
                                         </div>
                                     </div>
-                                    %{--<div class="col-md-4">
-                                        <ul class="stat-list m-t-lg">
-                                            <li>
-                                                <h2 class="no-margins">2,346</h2>
-                                                <small>Total orders in period</small>
-                                                <div class="progress progress-mini">
-                                                    <div class="progress-bar" style="width: 48%;"></div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <h2 class="no-margins ">4,422</h2>
-                                                <small>Orders in last month</small>
-                                                <div class="progress progress-mini">
-                                                    <div class="progress-bar" style="width: 60%;"></div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>--}%
                                 </div>
 
                             </div>
-
-                            <div class="m-t-md">
-                                <small class="pull-right">
-                                    <i class="fa fa-clock-o"> </i>
-                                    Update on 24.06.2017
-                                </small>
-                                %{--<small>
-                                    <strong>Analysis of sales:</strong> The value has been changed over time, and last month reached a level over $50,000.
-                                </small>--}%
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -627,79 +557,79 @@
                                     </thead>
                                     <tbody style="display: none"></tbody>
                                     <tbody id="blood-product-rbc" style="display: none">
-                                        <g:each in="${rbcList}" var="bloodProduct" status="i">
-                                            <tr style="text-align: center">
-                                                <td>${i+1}</td>
-                                                <td>${bloodProduct.bloodType}</td>
-                                                <td>${bloodProduct.projectedCollectionDayI}</td>
-                                                <td>${bloodProduct.projectedWeeklyImport}</td>
-                                                <td>${bloodProduct.projectedUsageDaily}</td>
-                                                <td>
-                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
-                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
-                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
-                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
-                                                            bloodProduct.projectedUsageDaily}" format="#.##"/>
-                                                </td>
-                                                <td>
-                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
-                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
-                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
-                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
-                                                            bloodProduct.projectedUsageDaily}"/>
-                                                </td>
-                                            </tr>
-                                        </g:each>
+                                    <g:each in="${rbcList}" var="bloodProduct" status="i">
+                                        <tr style="text-align: center">
+                                            <td>${i+1}</td>
+                                            <td>${bloodProduct.bloodType}</td>
+                                            <td>${bloodProduct.projectedCollectionDayI}</td>
+                                            <td>${bloodProduct.projectedWeeklyImport}</td>
+                                            <td>${bloodProduct.projectedUsageDaily}</td>
+                                            <td>
+                                                <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                        + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                        + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                        + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
+                                                        bloodProduct.projectedUsageDaily}" format="#.##"/>
+                                            </td>
+                                            <td>
+                                                <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                        + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                        + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                        + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
+                                                        bloodProduct.projectedUsageDaily}"/>
+                                            </td>
+                                        </tr>
+                                    </g:each>
                                     </tbody>
                                     <tbody id="blood-product-platelet">
-                                        <g:each in="${plateletList}" var="bloodProduct" status="i">
-                                            <tr style="text-align: center">
-                                                <td>${i+1}</td>
-                                                <td>${bloodProduct.bloodType}</td>
-                                                <td>${bloodProduct.projectedCollectionDayI}</td>
-                                                <td>${bloodProduct.projectedWeeklyImport}</td>
-                                                <td>${bloodProduct.projectedUsageDaily}</td>
-                                                <td>
-                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
-                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
-                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
-                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
-                                                            bloodProduct.projectedUsageDaily}" format="#.##"/>
-                                                </td>
-                                                <td>
-                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
-                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
-                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
-                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
-                                                            bloodProduct.projectedUsageDaily}"/>
-                                                </td>
-                                            </tr>
-                                        </g:each>
+                                    <g:each in="${plateletList}" var="bloodProduct" status="i">
+                                        <tr style="text-align: center">
+                                            <td>${i+1}</td>
+                                            <td>${bloodProduct.bloodType}</td>
+                                            <td>${bloodProduct.projectedCollectionDayI}</td>
+                                            <td>${bloodProduct.projectedWeeklyImport}</td>
+                                            <td>${bloodProduct.projectedUsageDaily}</td>
+                                            <td>
+                                                <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                        + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                        + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                        + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
+                                                        bloodProduct.projectedUsageDaily}" format="#.##"/>
+                                            </td>
+                                            <td>
+                                                <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                        + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                        + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                        + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
+                                                        bloodProduct.projectedUsageDaily}"/>
+                                            </td>
+                                        </tr>
+                                    </g:each>
                                     </tbody>
                                     <tbody id="blood-product-plasma" style="display: none">
-                                        <g:each in="${plasmaList}" var="bloodProduct" status="i">
-                                            <tr style="text-align: center">
-                                                <td>${i+1}</td>
-                                                <td>${bloodProduct.bloodType}</td>
-                                                <td>${bloodProduct.projectedCollectionDayI}</td>
-                                                <td>${bloodProduct.projectedWeeklyImport}</td>
-                                                <td>${bloodProduct.projectedUsageDaily}</td>
-                                                <td>
-                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
-                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
-                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
-                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
-                                                            bloodProduct.projectedUsageDaily}" format="#.##"/>
-                                                </td>
-                                                <td>
-                                                    <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
-                                                            + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
-                                                            + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
-                                                            + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
-                                                            bloodProduct.projectedUsageDaily}"/>
-                                                </td>
-                                            </tr>
-                                        </g:each>
+                                    <g:each in="${plasmaList}" var="bloodProduct" status="i">
+                                        <tr style="text-align: center">
+                                            <td>${i+1}</td>
+                                            <td>${bloodProduct.bloodType}</td>
+                                            <td>${bloodProduct.projectedCollectionDayI}</td>
+                                            <td>${bloodProduct.projectedWeeklyImport}</td>
+                                            <td>${bloodProduct.projectedUsageDaily}</td>
+                                            <td>
+                                                <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                        + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                        + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                        + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)/
+                                                        bloodProduct.projectedUsageDaily}" format="#.##"/>
+                                            </td>
+                                            <td>
+                                                <g:formatNumber number="${(bloodProduct.projectedWeeklyImport + bloodProduct.projectedCollectionDayI
+                                                        + bloodProduct.projectedCollectionDayIPlusOne + bloodProduct.projectedCollectionDayIPlusTwo
+                                                        + bloodProduct.projectedCollectionDayIPlusThree + bloodProduct.projectedCollectionDayIPlusFour
+                                                        + bloodProduct.projectedCollectionDayIPlusFive + bloodProduct.projectedCollectionDayIPlusSix)-
+                                                        bloodProduct.projectedUsageDaily}"/>
+                                            </td>
+                                        </tr>
+                                    </g:each>
                                     </tbody>
                                 </table>
                             </div>
@@ -1183,9 +1113,9 @@
                 show: false,
             }
         });
-
-        var lineData = {
-            labels: ["O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"],
+        var bloodType = ["O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"]
+        var currentInventoryPercentData = {
+            labels: bloodType,
             datasets: [
                 {
                     label: "Platelet",
@@ -1193,7 +1123,7 @@
                     borderColor: "rgba(26,179,148,0.7)",
                     pointBackgroundColor: "rgba(26,179,148,1)",
                     pointBorderColor: "#fff",
-                    data: [84, 34, 8, 4, 84, 34, 8, 4]
+                    data: ${currentInventoryPercent.platelet}
                 },
                 {
                     label: "RBC",
@@ -1201,7 +1131,7 @@
                     borderColor: "rgba(255,0,0,1)",
                     pointBackgroundColor: "rgba(255,0,0,1)",
                     pointBorderColor: "#fff",
-                    data: [350, 140, 35, 18, 350, 140, 35, 18]
+                    data: ${currentInventoryPercent.rbc}
                 },
                 {
                     label: "Plasma",
@@ -1209,7 +1139,7 @@
                     borderColor: "rgba(220,220,220,1)",
                     pointBackgroundColor: "rgba(220,220,220,1)",
                     pointBorderColor: "#fff",
-                    data: [280, 112, 28, 14, 280, 112, 28, 14]
+                    data: ${currentInventoryPercent.plasma}
                 }
             ]
         };
@@ -1218,14 +1148,42 @@
             responsive: true
         };
 
+        var ctx = document.getElementById("currentInventoryPercent").getContext("2d");
+        new Chart(ctx, {type: 'line', data: currentInventoryPercentData, options:lineOptions});
 
-        var ctx = document.getElementById("lineChart").getContext("2d");
-        new Chart(ctx, {type: 'line', data: lineData, options:lineOptions});
 
+        var currentInventoryGapData = {
+            labels: bloodType,
+            datasets: [
+                {
+                    label: "Platelet",
+                    backgroundColor: "rgba(26,179,148,0.5)",
+                    borderColor: "rgba(26,179,148,0.7)",
+                    pointBackgroundColor: "rgba(26,179,148,1)",
+                    pointBorderColor: "#fff",
+                    data: ${currentInventoryGap.platelet}
+                },
+                {
+                    label: "RBC",
+                    backgroundColor: "rgba(255,0,0,0.5)",
+                    borderColor: "rgba(255,0,0,1)",
+                    pointBackgroundColor: "rgba(255,0,0,1)",
+                    pointBorderColor: "#fff",
+                    data: ${currentInventoryGap.rbc}
+                },
+                {
+                    label: "Plasma",
+                    backgroundColor: "rgba(220,220,220,0.5)",
+                    borderColor: "rgba(220,220,220,1)",
+                    pointBackgroundColor: "rgba(220,220,220,1)",
+                    pointBorderColor: "#fff",
+                    data: ${currentInventoryGap.plasma}
+                }
+            ]
+        };
 
-        var ctx1 = document.getElementById("lineChart1").getContext("2d");
-        new Chart(ctx1, {type: 'line', data: lineData, options:lineOptions});
-
+        var ctx1 = document.getElementById("currentInventoryGap").getContext("2d");
+        new Chart(ctx1, {type: 'line', data: currentInventoryGapData, options:lineOptions});
 
     });
 </script>
