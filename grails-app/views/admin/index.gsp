@@ -416,7 +416,7 @@
                         <div class="ibox-content">
                             <div>
                                 <h3 class="font-bold no-margins">
-                                    Current Inventory Level Gap
+                                    Weekly Projection Level
                                 </h3>
                             </div>
 
@@ -425,7 +425,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
-
+                                            <canvas id="weeklyProjectionLevel" height="130"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -772,6 +772,38 @@
         var ctx1 = document.getElementById("optimalCurrentInventory").getContext("2d");
         new Chart(ctx1, {type: 'line', data: optimalCurrentInventoryData, options:lineOptions});
 
+        var weeklyProjectionData = {
+            labels: bloodType,
+            datasets: [
+                {
+                    label: "Platelet",
+                    backgroundColor: "rgba(26,179,148,0.5)",
+                    borderColor: "rgba(26,179,148,0.7)",
+                    pointBackgroundColor: "rgba(26,179,148,1)",
+                    pointBorderColor: "#fff",
+                    data: ${weeklyProjectionMap.platelet}
+                },
+                {
+                    label: "RBC",
+                    backgroundColor: "rgba(255,0,0,0.5)",
+                    borderColor: "rgba(255,0,0,1)",
+                    pointBackgroundColor: "rgba(255,0,0,1)",
+                    pointBorderColor: "#fff",
+                    data: ${weeklyProjectionMap.rbc}
+                },
+                {
+                    label: "Plasma",
+                    backgroundColor: "rgba(220,220,220,0.5)",
+                    borderColor: "rgba(220,220,220,1)",
+                    pointBackgroundColor: "rgba(220,220,220,1)",
+                    pointBorderColor: "#fff",
+                    data: ${weeklyProjectionMap.plasma}
+                }
+            ]
+        };
+
+        var ctx1 = document.getElementById("weeklyProjectionLevel").getContext("2d");
+        new Chart(ctx1, {type: 'line', data: weeklyProjectionData, options:lineOptions});
     });
 </script>
 </body>
