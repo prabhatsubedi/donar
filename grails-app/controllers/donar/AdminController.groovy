@@ -1,12 +1,16 @@
 package donar
 
 import com.donar.BloodInventory
+import grails.converters.JSON
 
 /**
  * Created by prabhat on 7/15/16.
  */
 class AdminController {
     static allowedMethods = [login: "POST", update: "PUT", delete: "DELETE"]
+
+    static final List BLOOD_TYPE = ["O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"]
+    static final List BLOOD_PRODUCT = ["platelet", "rbc", "plasma"]
 
     def index(){
         def count = BloodInventory.countByBloodProduct("platelet");
@@ -58,8 +62,10 @@ class AdminController {
         currentInventoryGap['plasma'] = dataGap
         weeklyProjectionMap['plasma'] = dataWeekly
 
+        Map forcastedGraphDataMap = prepareForcastedGraphData()
+
         [count: count, rbcList: rbcList, plateletList: plateletList, plasmaList: plasmaList, currentInventoryPercent: currentInventoryPercent, currentInventoryGap: currentInventoryGap,
-         weeklyProjectionMap: weeklyProjectionMap]
+         weeklyProjectionMap: weeklyProjectionMap, forcastedGraphDataMap: (forcastedGraphDataMap as JSON), bloodType: BLOOD_TYPE]
     }
     
     private Double weeklyProjectionPercent(BloodInventory bloodInventory){
@@ -71,6 +77,34 @@ class AdminController {
         Double weeklyProjectionPercent = weeklyProjection / bloodInventory.optimalLevel
 
         return weeklyProjectionPercent
+    }
+
+    private Map prepareForcastedGraphData(){
+        Map forcastedGraphMap = [:]
+        Map dataMap = [:]
+        for (String bloodProduct : BLOOD_PRODUCT){
+            dataMap = [:]
+            for (String bloodType : BLOOD_TYPE){
+                BloodInventory bloodInventory = BloodInventory.findByBloodProductAndBloodType(bloodProduct, bloodType)
+
+                List plateletData = []
+                plateletData.add(bloodInventory.projectedCollectionDayI)
+                plateletData.add(bloodInventory.projectedCollectionDayIPlusOne)
+                plateletData.add(bloodInventory.projectedCollectionDayIPlusTwo)
+                plateletData.add(bloodInventory.projectedCollectionDayIPlusThree)
+                plateletData.add(bloodInventory.projectedCollectionDayIPlusFour)
+                plateletData.add(bloodInventory.projectedCollectionDayIPlusFive)
+                plateletData.add(bloodInventory.projectedCollectionDayIPlusSix)
+
+                dataMap[bloodType] = plateletData
+            }
+
+            forcastedGraphMap[bloodProduct] = dataMap
+        }
+
+        println (forcastedGraphMap as JSON)
+
+        return forcastedGraphMap
     }
 
 }

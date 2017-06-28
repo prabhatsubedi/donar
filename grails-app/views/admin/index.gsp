@@ -1,4 +1,5 @@
 <%@ page import="java.math.MathContext" %>
+<%@ page defaultCodec="none" %>
 <!DOCTYPE html>
 <html>
 
@@ -94,7 +95,7 @@
                         <div class="ibox-content">
                             <div>
                                 <h3 class="font-bold no-margins">
-                                    Desired Optimal / Current Inventory Level
+                                    Current Inventory Level (Raw / Percent)
                                 </h3>
                             </div>
 
@@ -102,8 +103,61 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <div data-toggle="buttons" class="btn-group">
+                                            <label class="btn btn-sm btn-white active" id="current-raw-label" > <input type="radio" id="current-raw" name="options"> Raw </label>
+                                            <label class="btn btn-sm btn-white" id="current-percent-label"> <input type="radio" id="current-percent" name="options"> Percent </label>
+                                        </div>
                                         <div>
-                                            <canvas id="optimalCurrentInventory" height="130"></canvas>
+                                            <canvas id="currentInventoryRawPercent" height="114"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div>
+                                <h3 class="font-bold no-margins">
+                                    Weekly Gap Level
+                                </h3>
+                            </div>
+
+                            <div class="m-t-sm">
+
+                                %{--<div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <canvas id="weeklyProjectionLevel" height="130"></canvas>
+                                        </div>
+                                    </div>
+                                </div>--}%
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div>
+                                <h3 class="font-bold no-margins">
+                                    Gap Levels For Next 7 Days
+                                </h3>
+                                <g:select from="${bloodType}" name="bloodType" style="float:right"/>
+                            </div>
+
+                            <div class="m-t-sm">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <canvas id="forcastedDays" height="130"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -127,54 +181,6 @@
                                     <div class="col-md-12">
                                         <div>
                                             <canvas id="weeklyProjectionLevel" height="130"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <div>
-                                <h3 class="font-bold no-margins">
-                                    Current Inventory Level Percent
-                                </h3>
-                            </div>
-
-                            <div class="m-t-sm">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div>
-                                            <canvas id="currentInventoryPercent" height="114"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <div>
-                                <h3 class="font-bold no-margins">
-                                    Current Inventory Level Gap
-                                </h3>
-                            </div>
-
-                            <div class="m-t-sm">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div>
-                                            <canvas id="currentInventoryGap" height="114"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -358,6 +364,37 @@
 <script>
     $(document).ready(function() {
         var bloodType = ["O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"]
+        var days = ["Day I", "Day I + 1", "Day I + 2", "Day I + 3", "Day I + 4", "Day I + 5", "Day I + 6"]
+
+        var currentInventoryRawData = {
+            labels: bloodType,
+            datasets: [
+                {
+                    label: "Platelet",
+                    data: ${plateletList.currentInventoryLevel},
+                    backgroundColor: "rgba(26,179,148,0.5)",
+                    borderColor: "rgba(26,179,148,0.7)",
+                    pointBackgroundColor: "rgba(26,179,148,1)",
+                    pointBorderColor: "#fff"
+                },
+                {
+                    label: "RBC",
+                    data: ${rbcList.currentInventoryLevel},
+                    backgroundColor: "rgba(255,0,0,0.5)",
+                    borderColor: "rgba(255,0,0,1)",
+                    pointBackgroundColor: "rgba(255,0,0,1)",
+                    pointBorderColor: "#fff"
+                },
+                {
+                    label: "Plasma",
+                    data: ${plasmaList.currentInventoryLevel},
+                    backgroundColor: "rgba(220,220,220,0.5)",
+                    borderColor: "rgba(220,220,220,1)",
+                    pointBackgroundColor: "rgba(220,220,220,1)",
+                    pointBorderColor: "#fff"
+                }
+            ]
+        };
         var currentInventoryPercentData = {
             labels: bloodType,
             datasets: [
@@ -392,43 +429,35 @@
             responsive: true
         };
 
-        var ctx = document.getElementById("currentInventoryPercent").getContext("2d");
-        new Chart(ctx, {type: 'line', data: currentInventoryPercentData, options:lineOptions});
+        var ctx = document.getElementById("currentInventoryRawPercent").getContext("2d");
+        var cIRPChart = new Chart(ctx, {type: 'bar', data: currentInventoryRawData, options:lineOptions});
 
-        var currentInventoryGapData = {
-            labels: bloodType,
-            datasets: [
-                {
-                    label: "Platelet",
-                    backgroundColor: "rgba(26,179,148,0.5)",
-                    borderColor: "rgba(26,179,148,0.7)",
-                    pointBackgroundColor: "rgba(26,179,148,1)",
-                    pointBorderColor: "#fff",
-                    data: ${currentInventoryGap.platelet}
-                },
-                {
-                    label: "RBC",
-                    backgroundColor: "rgba(255,0,0,0.5)",
-                    borderColor: "rgba(255,0,0,1)",
-                    pointBackgroundColor: "rgba(255,0,0,1)",
-                    pointBorderColor: "#fff",
-                    data: ${currentInventoryGap.rbc}
-                },
-                {
-                    label: "Plasma",
-                    backgroundColor: "rgba(220,220,220,0.5)",
-                    borderColor: "rgba(220,220,220,1)",
-                    pointBackgroundColor: "rgba(220,220,220,1)",
-                    pointBorderColor: "#fff",
-                    data: ${currentInventoryGap.plasma}
-                }
-            ]
-        };
+        $('#current-raw-label').on('click', function(){
+            cIRPChart.destroy()
+            ctx = document.getElementById("currentInventoryRawPercent").getContext("2d");
+            cIRPChart = new Chart(ctx, {type: 'bar', data: currentInventoryRawData, options:lineOptions});
+        });
+        $('#current-percent-label').on('click', function(){
+            cIRPChart.destroy()
+            ctx = document.getElementById("currentInventoryRawPercent").getContext("2d");
+            cIRPChart = new Chart(ctx, {type: 'bar', data: currentInventoryPercentData, options:lineOptions});
+        });
 
-        var ctx1 = document.getElementById("currentInventoryGap").getContext("2d");
-        new Chart(ctx1, {type: 'line', data: currentInventoryGapData, options:lineOptions});
+        var forcastedGraphDataMap = ${forcastedGraphDataMap}
+        var forcastedDaysData = prepareForcastedGraphData(forcastedGraphDataMap, days, bloodType[0]);
 
-        var optimalCurrentInventoryData = {
+        var ctx1 = document.getElementById("forcastedDays").getContext("2d");
+        var forcastedChart = new Chart(ctx1, {type: 'line', data: forcastedDaysData, options:lineOptions});
+
+        $('#bloodType').on('change', function(){
+            var selectedBloodType = $(this).val();
+            forcastedDaysData = prepareForcastedGraphData(forcastedGraphDataMap, days, selectedBloodType);
+            forcastedChart.destroy()
+            ctx1 = document.getElementById("forcastedDays").getContext("2d");
+            forcastedChart = new Chart(ctx1, {type: 'line', data: forcastedDaysData, options:lineOptions});
+        });
+
+        /*var optimalCurrentInventoryData = {
             labels: bloodType,
             datasets: [
                 {
@@ -471,7 +500,7 @@
         };
 
         var ctx1 = document.getElementById("optimalCurrentInventory").getContext("2d");
-        new Chart(ctx1, {type: 'line', data: optimalCurrentInventoryData, options:lineOptions});
+        new Chart(ctx1, {type: 'line', data: optimalCurrentInventoryData, options:lineOptions});*/
 
         var weeklyProjectionData = {
             labels: bloodType,
@@ -504,8 +533,36 @@
         };
 
         var ctx1 = document.getElementById("weeklyProjectionLevel").getContext("2d");
-        new Chart(ctx1, {type: 'line', data: weeklyProjectionData, options:lineOptions});
+        new Chart(ctx1, {type: 'bar', data: weeklyProjectionData, options:lineOptions});
     });
+
+    function prepareForcastedGraphData(forcastedGraphDataMap, days, bloodType){
+        var forcastedDaysData = {
+            labels: days,
+            datasets: [
+                {
+                    label: "Platelet",
+                    borderColor: "rgba(26,179,148,0.7)",
+                    data: forcastedGraphDataMap['platelet'][bloodType],
+                    fill: false
+                },
+                {
+                    label: "RBC",
+                    borderColor: "rgba(255,0,0,1)",
+                    data:  forcastedGraphDataMap['rbc'][bloodType],
+                    fill: false
+                },
+                {
+                    label: "Plasma",
+                    borderColor: "rgba(220,220,220,1)",
+                    data:  forcastedGraphDataMap['plasma'][bloodType],
+                    fill: false
+                }
+            ]
+        };
+
+        return forcastedDaysData;
+    }
 </script>
 </body>
 </html>
