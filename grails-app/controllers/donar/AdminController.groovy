@@ -24,19 +24,23 @@ class AdminController {
         Map currentInventoryPercent = [:]
         Map currentInventoryGap = [:]
         Map weeklyProjectionMap = [:]
+        Map weeklyGapMap = [:]
 
         List dataPercent = []
         List dataGap = []
         List dataWeekly = []
+        List dataWeeklyGap = []
 
         rbcList.each {
             dataPercent.add(it.currentInventoryLevel / it.optimalLevel)
             dataGap.add(it.optimalLevel - it.currentInventoryLevel)
             dataWeekly.add(weeklyProjectionPercent(it))
+            dataWeeklyGap.add(weeklyProjectionGap(it))
         }
         currentInventoryPercent['rbc'] = dataPercent
         currentInventoryGap['rbc'] = dataGap
         weeklyProjectionMap['rbc'] = dataWeekly
+        weeklyGapMap['rbc'] = dataWeeklyGap
 
         dataPercent = []
         dataGap = []
@@ -45,10 +49,12 @@ class AdminController {
             dataPercent.add(it.currentInventoryLevel / it.optimalLevel)
             dataGap.add(it.optimalLevel - it.currentInventoryLevel)
             dataWeekly.add(weeklyProjectionPercent(it))
+            dataWeeklyGap.add(weeklyProjectionGap(it))
         }
         currentInventoryPercent['platelet'] = dataPercent
         currentInventoryGap['platelet'] = dataGap
         weeklyProjectionMap['platelet'] = dataWeekly
+        weeklyGapMap['platelet'] = dataWeeklyGap
 
         dataPercent = []
         dataGap = []
@@ -57,15 +63,17 @@ class AdminController {
             dataPercent.add(it.currentInventoryLevel / it.optimalLevel)
             dataGap.add(it.optimalLevel - it.currentInventoryLevel)
             dataWeekly.add(weeklyProjectionPercent(it))
+            dataWeeklyGap.add(weeklyProjectionGap(it))
         }
         currentInventoryPercent['plasma'] = dataPercent
         currentInventoryGap['plasma'] = dataGap
         weeklyProjectionMap['plasma'] = dataWeekly
+        weeklyGapMap['plasma'] = dataWeeklyGap
 
         Map forcastedGraphDataMap = prepareForcastedGraphData()
 
         [count: count, rbcList: rbcList, plateletList: plateletList, plasmaList: plasmaList, currentInventoryPercent: currentInventoryPercent, currentInventoryGap: currentInventoryGap,
-         weeklyProjectionMap: weeklyProjectionMap, forcastedGraphDataMap: (forcastedGraphDataMap as JSON), bloodType: BLOOD_TYPE]
+         weeklyProjectionMap: weeklyProjectionMap, forcastedGraphDataMap: (forcastedGraphDataMap as JSON), bloodType: BLOOD_TYPE, weeklyGapMap: weeklyGapMap]
     }
     
     private Double weeklyProjectionPercent(BloodInventory bloodInventory){
@@ -102,9 +110,17 @@ class AdminController {
             forcastedGraphMap[bloodProduct] = dataMap
         }
 
-        println (forcastedGraphMap as JSON)
-
         return forcastedGraphMap
+    }
+
+    private Double weeklyProjectionGap(BloodInventory bloodInventory){
+        /*
+        * (Projected Weekly Usage) - (sum of projected collection day i, day i+1, .... through day i+6) - (projected weekly import)
+        */
+        Integer sumProjectedCollection = (bloodInventory.projectedCollectionDayI + bloodInventory.projectedCollectionDayIPlusOne + bloodInventory.projectedCollectionDayIPlusTwo +  bloodInventory.projectedCollectionDayIPlusThree + bloodInventory.projectedCollectionDayIPlusFour + bloodInventory.projectedCollectionDayIPlusFive + bloodInventory.projectedCollectionDayIPlusSix)
+        Integer weeklyProjectionGap = bloodInventory.projectedUsageWeekly - sumProjectedCollection - bloodInventory.projectedWeeklyImport
+
+        return weeklyProjectionGap
     }
 
 }

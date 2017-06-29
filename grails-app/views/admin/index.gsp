@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DR+ Admin Dashboard</title>
+    <title>Circulate Admin Dashboard</title>
 
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="font-awesome/css/font-awesome.css"/>
@@ -69,7 +69,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">Welcome to DR+ Admin Dashboard.</span>
+                        <span class="m-r-sm text-muted welcome-message">Welcome to Circulate Admin Dashboard.</span>
                     </li>
 
                     <li>
@@ -128,13 +128,13 @@
 
                             <div class="m-t-sm">
 
-                                %{--<div class="row">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <div>
-                                            <canvas id="weeklyProjectionLevel" height="130"></canvas>
+                                            <canvas id="weeklyGapLevel" height="130"></canvas>
                                         </div>
                                     </div>
-                                </div>--}%
+                                </div>
 
                             </div>
                         </div>
@@ -308,7 +308,7 @@
         </div>
         <div class="footer">
             <div>
-                <strong>Copyright</strong> DR &copy; 2017
+                <strong>Copyright</strong> Circulate &copy; 2017
             </div>
         </div>
 
@@ -501,6 +501,39 @@
 
         var ctx1 = document.getElementById("optimalCurrentInventory").getContext("2d");
         new Chart(ctx1, {type: 'line', data: optimalCurrentInventoryData, options:lineOptions});*/
+
+        var weeklyGapData = {
+            labels: bloodType,
+            datasets: [
+                {
+                    label: "Platelet",
+                    backgroundColor: "rgba(26,179,148,0.5)",
+                    borderColor: "rgba(26,179,148,0.7)",
+                    pointBackgroundColor: "rgba(26,179,148,1)",
+                    pointBorderColor: "#fff",
+                    data: ${weeklyGapMap.platelet}
+                },
+                {
+                    label: "RBC",
+                    backgroundColor: "rgba(255,0,0,0.5)",
+                    borderColor: "rgba(255,0,0,1)",
+                    pointBackgroundColor: "rgba(255,0,0,1)",
+                    pointBorderColor: "#fff",
+                    data: ${weeklyGapMap.rbc}
+                },
+                {
+                    label: "Plasma",
+                    backgroundColor: "rgba(220,220,220,0.5)",
+                    borderColor: "rgba(220,220,220,1)",
+                    pointBackgroundColor: "rgba(220,220,220,1)",
+                    pointBorderColor: "#fff",
+                    data: ${weeklyGapMap.plasma}
+                }
+            ]
+        };
+
+        var ctx1 = document.getElementById("weeklyGapLevel").getContext("2d");
+        new Chart(ctx1, {type: 'bar', data: weeklyGapData, options:lineOptions});
 
         var weeklyProjectionData = {
             labels: bloodType,
