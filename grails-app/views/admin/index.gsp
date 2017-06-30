@@ -42,7 +42,7 @@
                                 </ul>
                     </div>
                     <div class="logo-element">
-                        IN+
+                        Circulate
                     </div>
                 </li>
                 <li class="active">

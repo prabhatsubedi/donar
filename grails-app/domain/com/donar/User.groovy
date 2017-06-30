@@ -14,10 +14,14 @@ class User {
     boolean accountExpired
     boolean accountLocked
     boolean credentialsExpired
+    String fullName
+    String email
 
     static constraints = {
         username blank: false, unique: true
         password blank: false
+        fullName blank: false
+        email blank: false
     }
 
     static mapping = {

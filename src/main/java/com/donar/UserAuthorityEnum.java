@@ -6,8 +6,6 @@ package com.donar;
 public enum UserAuthorityEnum {
     ROLE_ANONYMOUS,
     ROLE_ADMIN,
-    ROLE_CSR,
-    ROLE_VENDOR,
-    ROLE_BARTENDER,
-    ROLE_CUSTOMER
+    ROLE_DONAR,
+    ROLE_USER
 }

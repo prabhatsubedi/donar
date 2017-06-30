@@ -19,8 +19,10 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers('/register/**').hasAnyRole('ANONYMOUS')
                 .antMatchers('/admin/**').hasAnyRole('ADMIN')
                 .antMatchers('/dashBoard/**').hasAnyRole('USER', 'ADMIN')
+                .antMatchers('/donar/**').hasAnyRole('USER')
                 .antMatchers('/').permitAll()
                 .and()
                 .formLogin()
