@@ -15,7 +15,6 @@
 
     <!-- Morris -->
 
-    <asset:stylesheet src="plugins/morris/morris-0.4.3.min.css"/>
     <asset:stylesheet src="animate.css"/>
     <asset:stylesheet src="style"/>
 
@@ -31,30 +30,32 @@
                         <asset:image alt="image" class="img-circle" src="profile_small.jpg" />
                     </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Donar</strong>
-                                %{--</span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>--}%
-                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="contacts.html">Contacts</a></li>
-                                    <li><a href="mailbox.html">Mailbox</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="/logout">Logout</a></li>
-                                </ul>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">Donar</strong>
+                                </span>
+                                <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="">Profile</a></li>
+                            <li><a href="">Contacts</a></li>
+                            <li><a href="">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
                     </div>
                     <div class="logo-element">
                         Circulate
                     </div>
                 </li>
-                <li class="active">
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Donar</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        %{--<li><a href="index.html">Dashboard v.1</a></li>
-                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>--}%
-                        <li class="active"><a href="/">Dashboard</a></li>
-                        %{--<li><a href="dashboard_5.html">Dashboard v.5 </a></li>--}%
-                    </ul>
-                </li>
+                <li class="active"><a href="/"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a></li>
+                <li><a href="/"><i class="fa fa-user"></i> <span class="nav-label">Profile</span></a></li>
+                <li><a href="#"><i class="fa fa-medkit"></i> <span class="nav-label">Donation History</span></a></li>
+                <li><a href="#"><i class="fa fa-medkit"></i> <span class="nav-label">Health History</span></a></li>
+                <li><a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Appointments</span></a></li>
+                <li><a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Rewards</span></a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Messages</span></a></li>
             </ul>
 
         </div>
