@@ -22,7 +22,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers('/register/**').hasAnyRole('ANONYMOUS')
                 .antMatchers('/admin/**').hasAnyRole('ADMIN')
                 .antMatchers('/dashBoard/**').hasAnyRole('USER', 'ADMIN')
-                .antMatchers('/donar/**').hasAnyRole('USER')
+                .antMatchers('/donar/**').hasAnyRole('DONAR')
                 .antMatchers('/').permitAll()
                 .and()
                 .formLogin()
