@@ -26,4 +26,20 @@ class UserService {
         }
 
     }
+
+    protected User getUser(Long id){
+        User.get(id);
+    }
+
+    protected boolean updateDonar(User user) {
+        try{
+            user.save(failOnError: true)
+
+            return true
+        }catch (Exception ex){
+            ex.printStackTrace()
+            return false
+        }
+
+    }
 }

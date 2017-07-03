@@ -16,7 +16,8 @@ class RegisterController {
 
     }
     def register(){
-        User user = new User(username: params.username, password: params.password, fullName: params.fullName, email: params.username)
+        User user = new User(username: params.username, password: params.password, fullName: params.fullName, email: params.username,
+                bloodType: params.bloodType, age: params.age, gender: params.gender)
         boolean isCreated = userService.createDonar(user);
         println "Is Created............"+isCreated
         if(isCreated){
