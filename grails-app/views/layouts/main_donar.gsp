@@ -51,13 +51,27 @@
                         Circulate
                     </div>
                 </li>
-                <li class="${(controllerName == 'donar')?'active':''}"><a href="/"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a></li>
-                <li class="${(controllerName == 'profile')?'active':''}"><g:link controller="profile" action="index"><i class="fa fa-user"></i> <span class="nav-label">Profile</span></g:link></li>
-                <li><a href="#"><i class="fa fa-medkit"></i> <span class="nav-label">Donation History</span></a></li>
-                <li><a href="#"><i class="fa fa-medkit"></i> <span class="nav-label">Health History</span></a></li>
-                <li><a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Appointments</span></a></li>
-                <li><a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Rewards</span></a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Messages</span></a></li>
+                <li class="${(controllerName == 'donar')?'active':''}">
+                    <a href="/"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+                </li>
+                <li class="${(controllerName == 'profile')?'active':''}">
+                    <g:link controller="profile" action="index"><i class="fa fa-user"></i> <span class="nav-label">Profile</span></g:link>
+                </li>
+                <li class="${(controllerName == 'donationHistory')?'active':''}">
+                    <g:link controller="donationHistory" action="index"><i class="fa fa-medkit"></i> <span class="nav-label">Donation History</span></g:link>
+                </li>
+                <li class="${(controllerName == 'healthHistory')?'active':''}">
+                    <g:link controller="healthHistory" action="index"><i class="fa fa-medkit"></i> <span class="nav-label">Health History</span></g:link>
+                </li>
+                <li class="${(controllerName == 'appointment')?'active':''}">
+                    <g:link controller="appointment" action="index"><i class="fa fa-calendar-o"></i> <span class="nav-label">Appointments</span></g:link>
+                </li>
+                <li class="${(controllerName == 'reward')?'active':''}">
+                    <g:link controller="reward" action="index"><i class="fa fa-gift"></i> <span class="nav-label">Rewards</span></g:link>
+                </li>
+                <li class="${(controllerName == 'message')?'active':''}">
+                    <g:link controller="message" action="index"><i class="fa fa-envelope"></i> <span class="nav-label">Messages</span></g:link>
+                </li>
             </ul>
 
         </div>
