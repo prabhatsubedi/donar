@@ -3,6 +3,8 @@ package com.donar
 //unnecessary if passwordEncoder is defined `def passwordEncoder`
 import org.springframework.security.crypto.password.PasswordEncoder
 
+import java.sql.Timestamp
+
 class User {
 
     //This could be defined as `def passwordEncoder` as well and the import would be unnecessary
@@ -26,6 +28,9 @@ class User {
     String bloodType
     String gender
     String age
+
+    Timestamp dateCreated
+    Timestamp lastUpdated
 
     static constraints = {
         username blank: false, unique: true

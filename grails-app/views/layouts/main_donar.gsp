@@ -114,8 +114,8 @@
     <g:message code="spinner.alt" default="Loading&hellip;"/>
 </div>
 
-
 <!-- Mainly scripts -->
+<asset:javascript src="plugins/fullcalendar/moment.min.js"/>
 <asset:javascript src="jquery-3.1.1.min.js"/>
 <asset:javascript src="bootstrap.min.js"/>
 <asset:javascript src="plugins/metisMenu/jquery.metisMenu.js"/>
@@ -153,6 +153,14 @@
 
 <!-- ChartJS-->
 <asset:javascript src="plugins/chartJs/Chart.min.js"/>
+
+<!-- iCheck -->
+<asset:javascript src="plugins/iCheck/icheck.min.js"/>
+<!-- Full Calendar -->
+<asset:javascript src="plugins/fullcalendar/fullcalendar.min.js"/>
+
+<!-- For All Pages-->
+<asset:javascript src="global.js"/>
 
 </body>
 </html>
