@@ -27,7 +27,6 @@ class User {
     String country
     String bloodType
     String gender
-    String age
 
     Timestamp dateCreated
     Timestamp lastUpdated
@@ -43,7 +42,8 @@ class User {
         state nullable: true, blank: true
         city nullable: true, blank: true
         zipCode nullable: true, blank: true
-        country nullable: true, blank: true
+        country nullable: true, blank: false
+        bloodType nullable: true, blank: false
     }
 
     static mapping = {

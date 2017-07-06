@@ -14,13 +14,13 @@
             <div class="ibox-content">
                 <div class="row">
                     <div class="col-lg-4">
-                        <strong>Blood Type: </strong>${user.bloodType}
+                        <p style="font-size: 13pt"><b>Blood Type:</b> ${user.bloodType}</p>
                     </div>
                     <div class="col-lg-4">
-                        <strong>Donar Since: </strong>${user.dateCreated?.format("YYYY")}
+                        <p style="font-size: 13pt"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
                     </div>
                     <div class="col-lg-4">
-                        <strong>Preferred Donation: </strong>N/A
+                        %{--<strong>Preferred Donation: </strong>N/A--}%
                     </div>
                 </div>
             </div>
@@ -29,16 +29,16 @@
 </div>
 <div class="row">
 <div class="col-lg-4">
-    <g:link controller="profile" action="index">
-        <div class="widget navy-bg p-lg text-center">
-            <div class="m-b-md">
-                <i class="fa fa-user fa-4x"></i>
-                <h1 class="font-bold">
-                    Profile
-                </h1>
-            </div>
+    <div class="widget navy-bg p-lg text-center" style="min-height: 185px">
+        <div class="m-b-md">
+            <h3 class="font-bold">
+                Optimal Donation: Platelets
+            </h3>
+            <h1 class="font-bold">
+                8-1-17 to 8-8-17
+            </h1>
         </div>
-    </g:link>
+    </div>
     <g:link controller="appointment" action="index">
         <div class="widget navy-bg p-lg text-center">
             <div class="m-b-md">

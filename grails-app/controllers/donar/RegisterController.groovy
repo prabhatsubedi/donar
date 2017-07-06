@@ -5,6 +5,8 @@ import com.donar.UserAuthorityEnum
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder
 
+import java.text.SimpleDateFormat
+
 /**
  * Created by prabhat on 7/15/16.
  */
@@ -16,8 +18,9 @@ class RegisterController {
 
     }
     def register(){
+        Date birthDate =  new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH).parse(params.birthDate)
         User user = new User(username: params.username, password: params.password, fullName: params.fullName, email: params.username,
-                bloodType: params.bloodType, age: params.age, gender: params.gender)
+                bloodType: params.bloodType, birthDate: birthDate, gender: params.gender)
         boolean isCreated = userService.createDonar(user);
         println "Is Created............"+isCreated
         if(isCreated){

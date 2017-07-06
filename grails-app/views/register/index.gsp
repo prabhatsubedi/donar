@@ -11,6 +11,7 @@
     <asset:stylesheet src="font-awesome/css/font-awesome.css"/>
     <asset:stylesheet src="plugins/iCheck/custom.css"/>
     <asset:stylesheet src="plugins/select2/select2.min.css"/>
+    <asset:stylesheet src="plugins/datapicker/datepicker3.css"/>
     <asset:stylesheet src="animate.css"/>
     <asset:stylesheet src="style.css"/>
 
@@ -24,7 +25,7 @@
         </div>
         <h3>Register to Circulate</h3>
         <p>Create account to see it in action.</p>
-        <g:form class="m-t" role="form" controller="register" action="register">
+        <g:form class="m-t" role="form" controller="register" onsubmit="return validateForm();" action="register">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Full Name" name="fullName" required="">
             </div>
@@ -32,10 +33,13 @@
                 <input type="email" class="form-control" placeholder="Email" name="username" required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" name="password" required="">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required="">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Blood Type" name="bloodType" required="">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Blood Type" name="bloodType">
             </div>
             <div class="form-group">
                 <select class="select2_demo_3 form-control" name="gender" required="required">
@@ -45,8 +49,15 @@
                     <option value="Unknown">Unknown</option>
                 </select>
             </div>
-            <div class="form-group">
-                <input type="number" min="1" max="110" class="form-control" placeholder="Age" name="age" required="">
+            %{--<div class="form-group">
+                <input type="number" min="1" max="110" class="form-control" placeholder="Age" name="birthDate" required="">
+            </div>--}%
+            <div class="form-group" id="register-dob" style="text-align: left;">
+                <label class="font-normal">Date Of Birth</label><br>
+                <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input type="text" class="form-control" value="01/01/1990" name="birthDate">
+                </div>
             </div>
             <div class="form-group">
                 <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
@@ -67,6 +78,8 @@
 <asset:javascript src="plugins/iCheck/icheck.min.js"/>
 <!-- Select2 -->
 <asset:javascript src="plugins/select2/select2.full.min.js"/>
+<!-- Data picker -->
+<asset:javascript src="plugins/datapicker/bootstrap-datepicker.js"/>
 <script>
     $(document).ready(function(){
         $('.i-checks').iCheck({
@@ -78,7 +91,24 @@
             placeholder: "Select Gender",
             allowClear: true
         });
+
+        $('#register-dob .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
     });
+    function validateForm(){
+        var password = $("#password").val().trim();
+        var confirmPassword = $("#confirmPassword").val().trim();
+        if(password != confirmPassword){
+            alert("Password Did Not Match!");
+            return false;
+        }
+        return true;
+    }
 </script>
 </body>
 
