@@ -2,6 +2,8 @@ package donar
 
 import com.donar.User
 
+import java.text.SimpleDateFormat
+
 /**
  * Created by prabhat on 7/15/16.
  */
@@ -17,9 +19,15 @@ class ProfileController {
 
     def save(){
         User user = userService.getUser(session.user.id);
+        Date birthDate =  Date.parse("MM/dd/yyyy", params.birthDate)
+        params.birthDate = birthDate
+
         bindData(user, params)
 
-        userService.updateDonar(user);
+        boolean success = userService.updateDonar(user);
+        if(success){
+            session.user.fullName = user.fullName;
+        }
 
         redirect(action: 'index')
 

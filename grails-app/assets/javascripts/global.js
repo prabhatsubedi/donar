@@ -96,6 +96,14 @@ $(document).ready(function() {
             }
         ]
     });
+
+    $('.calendar-dob .input-group.date').datepicker({
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        forceParse: false,
+        calendarWeeks: true,
+        autoclose: true
+    });
 });
 
 var data = [{
@@ -169,3 +177,13 @@ var myChart = new Chart(ctx, {
     },
     options: options
 });
+
+function validateForm(){
+    var password = $("#password").val().trim();
+    var confirmPassword = $("#confirmPassword").val().trim();
+    if(password != confirmPassword){
+        alert("Password Did Not Match!");
+        return false;
+    }
+    return true;
+}

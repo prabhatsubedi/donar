@@ -158,7 +158,8 @@
 <asset:javascript src="plugins/iCheck/icheck.min.js"/>
 <!-- Full Calendar -->
 <asset:javascript src="plugins/fullcalendar/fullcalendar.min.js"/>
-
+<!-- Data picker -->
+<asset:javascript src="plugins/datapicker/bootstrap-datepicker.js"/>
 <!-- For All Pages-->
 <asset:javascript src="global.js"/>
 

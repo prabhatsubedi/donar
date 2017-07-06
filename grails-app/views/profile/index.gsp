@@ -5,6 +5,8 @@
     <meta name="layout" content="main_donar"/>
 
     <title>Circulate | Profile</title>
+
+    <asset:stylesheet src="plugins/datapicker/datepicker3.css"/>
 </head>
 
 <body>
@@ -20,7 +22,7 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <g:form method="POST" class="form-horizontal" controller="profile" action="save">
+                <g:form method="POST" class="form-horizontal" controller="profile" action="save" onsubmit="return validateForm();">
                     <div class="form-group"><label class="col-sm-2 control-label">Full Name</label>
 
                         <div class="col-sm-10"><input type="text" class="form-control" value="${user.fullName}" name="fullName"></div>
@@ -28,7 +30,12 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group"><label class="col-sm-2 control-label">Password</label>
 
-                        <div class="col-sm-10"><input type="password" class="form-control" name="password" value="${user.password}"></div>
+                        <div class="col-sm-10"><input id="password" type="password" class="form-control" name="password" value="${user.password}"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group"><label class="col-sm-2 control-label">Confirm Password</label>
+
+                        <div class="col-sm-10"><input id="confirmPassword" type="password" class="form-control" name="confirmPassword" value="${user.password}"></div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group"><label class="col-lg-2 control-label">Donar ID</label>
@@ -46,14 +53,17 @@
                         <div class="col-lg-10"><p class="form-control-static">${user.gender}</p></div>
                     </div>
                     <div class="hr-line-dashed"></div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Age</label>
-
-                        <div class="col-lg-10"><p class="form-control-static">${user.age}</p></div>
+                    <div class="form-group calendar-dob">
+                        <label class="col-lg-2 control-label">Date Of Birth</label>
+                        <div class="input-group date" style="padding-left: 15px;">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" class="form-control" value="${user.birthDate.format('MM/dd/yyyy')}" name="birthDate">
+                        </div>
                     </div>
                     <div class="hr-line-dashed"></div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Birth Date</label>
+                    <div class="form-group"><label class="col-lg-2 control-label">Email</label>
 
-                        <div class="col-lg-10"><input type="text" class="form-control" value="${user.birthDate}" name="birthDate"/></div>
+                        <div class="col-lg-10"><input type="text" class="form-control" value="${user.email}" name="email"/></div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group"><label class="col-lg-2 control-label">Phone Number</label>
