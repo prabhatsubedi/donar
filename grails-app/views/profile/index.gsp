@@ -57,7 +57,7 @@
                         <label class="col-lg-2 control-label">Date Of Birth</label>
                         <div class="input-group date" style="padding-left: 15px;">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input type="text" class="form-control" value="${user.birthDate.format('MM/dd/yyyy')}" name="birthDate">
+                            <input type="text" class="form-control" value="${user.birthDate?.format('MM/dd/yyyy')}" name="birthDate">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
