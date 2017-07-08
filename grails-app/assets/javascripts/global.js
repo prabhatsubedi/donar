@@ -168,5 +168,10 @@ function validateForm(){
 }
 
 function selectDonationTime(url, index, appointmentDate){
-    location.href = url+"?index="+index+"&appointmentDate="+appointmentDate
+    var donationType = $("#donation-type-"+index).val();
+    if(donationType == ""){
+        alert("Please Select Donation Type!");
+        return
+    }
+    location.href = url+"?index="+index+"&appointmentDate="+appointmentDate+"&donationType="+donationType
 }

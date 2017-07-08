@@ -53,14 +53,32 @@
                         <th>Start Time</th>
                         <th>End Time</th>
                         <th>Location</th>
+                        <th>Donation Tpye</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <g:each in="${data}" var="row" status="i">
-                        <tr style="cursor: pointer" onclick="selectDonationTime('<g:createLink controller="appointment" action="saveAppointment"/>', ${row.id}, '${appointmentDate}')">
-                            <td title="Click Here To Select">${row.startTime}</td>
-                            <td title="Click Here To Select">${row.endTime}</td>
-                            <td title="Click Here To Select" class="text-navy"> ${row.location} </td>
+                        <tr>
+                            <td>${row.startTime}</td>
+                            <td>${row.endTime}</td>
+                            <td>${row.location}</td>
+                            <td>
+                                <select class="select2_demo form-control" id="donation-type-${row.id}" style="width: auto">
+                                    <option value="">Select</option>
+                                    <g:each in="${donationType}" var="l">
+                                        <option value="${l}">${l}</option>
+                                    </g:each>
+                                </select>
+                            </td>
+                            <td>
+                                <div style="float: left">
+                                    <button onclick="selectDonationTime('<g:createLink controller="appointment" action="saveAppointment"/>', ${row.id}, '${appointmentDate}')" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+                                        <strong>Go</strong>
+                                    </button>
+                                </div>
+
+                            </td>
                         </tr>
                     </g:each>
 

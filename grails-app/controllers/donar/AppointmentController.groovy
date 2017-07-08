@@ -16,6 +16,7 @@ class AppointmentController {
                          ['id': 4, 'startTime': "12:30 PM", 'endTime': "02:30 PM",'st': "12:30", 'et': "14:30", "location": "Menlo Park"],
                          ['id': 5, 'startTime': "03:30 PM", 'endTime': "06:00 PM",'st': "15:30", 'et': "18:00", "location": "Menlo Park"]]
     List locationList = ["Mountain View", "Menlo Park", "Palo Alto", "Google Mobile"]
+    List donationType = ['Platelets', 'Plasma', 'Whole Blood', 'Double Red Cell']
 
     UserService userService
     AppointmentService appointmentService
@@ -67,7 +68,8 @@ class AppointmentController {
 
         List filteredDonationList = donationList.findAll {it.location == params.location}
 
-        [user: user, location: locationList, selectedLocation: selectedLocation, appointmentDate: appointmentDate, data: filteredDonationList]
+        [user: user, location: locationList, selectedLocation: selectedLocation, appointmentDate: appointmentDate,
+         data: filteredDonationList, donationType: donationType]
     }
 
     def saveAppointment(){
@@ -82,6 +84,7 @@ class AppointmentController {
         userAppointment.setStartTime(appointment.st)
         userAppointment.setEndTime(appointment.et)
         userAppointment.setLocation(appointment.location)
+        userAppointment.setDonationType(params.donationType)
 
         Date date = Date.parse("MM/dd/yyyy", params.appointmentDate)
         userAppointment.setDate(date)

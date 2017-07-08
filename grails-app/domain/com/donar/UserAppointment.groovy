@@ -9,5 +9,6 @@ class UserAppointment {
     String startTime
     String endTime
     String location
+    String donationType
 
 }
