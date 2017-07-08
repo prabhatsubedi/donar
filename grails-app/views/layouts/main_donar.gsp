@@ -12,7 +12,8 @@
 
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="font-awesome/css/font-awesome.css"/>
-
+    <asset:stylesheet src="plugins/select2/select2.min.css"/>
+    <asset:stylesheet src="plugins/datapicker/datepicker3.css"/>
     <!-- Morris -->
 
     <asset:stylesheet src="plugins/morris/morris-0.4.3.min.css"/>
@@ -156,6 +157,8 @@
 
 <!-- iCheck -->
 <asset:javascript src="plugins/iCheck/icheck.min.js"/>
+<!-- Select2 -->
+<asset:javascript src="plugins/select2/select2.full.min.js"/>
 <!-- Full Calendar -->
 <asset:javascript src="plugins/fullcalendar/fullcalendar.min.js"/>
 <!-- Data picker -->

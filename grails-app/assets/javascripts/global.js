@@ -34,6 +34,16 @@ $(document).ready(function() {
     var m = date.getMonth();
     var y = date.getFullYear();
 
+    var event = []
+    for (i = 0; i < appointData.length; i++) {
+        var map = new Object();
+        map['title'] = appointData[i].title
+        map['start'] = new Date(appointData[i].start[0], appointData[i].start[1], appointData[i].start[2], appointData[i].start[3], appointData[i].start[4]),
+        map['end'] = new Date(appointData[i].end[0], appointData[i].end[1], appointData[i].end[2], appointData[i].end[3], appointData[i].end[4])
+
+        event.push(map)
+    }
+
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -49,52 +59,7 @@ $(document).ready(function() {
                 $(this).remove();
             }
         },
-        events: [
-            {
-                title: 'All Day Event',
-                start: new Date(y, m, 1)
-            },
-            {
-                title: 'Long Event',
-                start: new Date(y, m, d-5),
-                end: new Date(y, m, d-2)
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d-3, 16, 0),
-                allDay: false
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d+4, 16, 0),
-                allDay: false
-            },
-            {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false
-            },
-            {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false
-            },
-            {
-                title: 'Birthday Party',
-                start: new Date(y, m, d+1, 19, 0),
-                end: new Date(y, m, d+1, 22, 30),
-                allDay: false
-            },
-            {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'http://google.com/'
-            }
-        ]
+        events: event
     });
 
     $('.calendar-dob .input-group.date').datepicker({
@@ -103,6 +68,11 @@ $(document).ready(function() {
         forceParse: false,
         calendarWeeks: true,
         autoclose: true
+    });
+
+    $(".select2_demo_3").select2({
+        placeholder: "Choose Location",
+        allowClear: true
     });
 });
 
@@ -195,4 +165,8 @@ function validateForm(){
         return false;
     }
     return true;
+}
+
+function selectDonationTime(url, index, appointmentDate){
+    location.href = url+"?index="+index+"&appointmentDate="+appointmentDate
 }
