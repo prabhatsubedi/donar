@@ -38,8 +38,16 @@
             <div class="form-group">
                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required="">
             </div>
-            <div class="form-group">
+            %{--<div class="form-group">
                 <input type="text" class="form-control" placeholder="Blood Type" name="bloodType">
+            </div>--}%
+            <div class="form-group">
+                <select class="blood-type form-control" name="bloodType">
+                    <option></option>
+                    <g:each in="${bloodType}" var="b">
+                        <option value="${b}">${b}</option>
+                    </g:each>
+                </select>
             </div>
             <div class="form-group">
                 <select class="select2_demo_3 form-control" name="gender" required="required">
@@ -89,6 +97,10 @@
 
         $(".select2_demo_3").select2({
             placeholder: "Select Gender",
+            allowClear: true
+        });
+        $(".blood-type").select2({
+            placeholder: "Select Blood Type",
             allowClear: true
         });
 

@@ -11,19 +11,17 @@
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
-            <div class="ibox-content">
                 <div class="row">
                     <div class="col-lg-4">
-                        <p style="font-size: 13pt"><b>Blood Type:</b> ${user.bloodType}</p>
+                        <p class="label label-primary" style="font-size: 13pt"><b>Blood Type:</b> ${user.bloodType}</p>
                     </div>
                     <div class="col-lg-4">
-                        <p style="font-size: 13pt"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
+                        <p class="label label-primary" style="font-size: 13pt"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
                     </div>
                     <div class="col-lg-4">
                         %{--<strong>Preferred Donation: </strong>N/A--}%
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

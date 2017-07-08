@@ -12,10 +12,10 @@ import java.text.SimpleDateFormat
  */
 class RegisterController {
     static allowedMethods = [login: "POST", update: "PUT", delete: "DELETE"]
-
+    List bloodType = ["O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"]
     UserService userService;
     def index(){
-
+        [bloodType: bloodType]
     }
     def register(){
         Date birthDate =  new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH).parse(params.birthDate)

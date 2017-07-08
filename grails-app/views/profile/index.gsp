@@ -5,8 +5,6 @@
     <meta name="layout" content="main_donar"/>
 
     <title>Circulate | Profile</title>
-
-    <asset:stylesheet src="plugins/datapicker/datepicker3.css"/>
 </head>
 
 <body>

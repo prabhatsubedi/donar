@@ -11,31 +11,18 @@
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>Information</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
+            <div class="row">
+                <div class="col-lg-2">
+                    <p class="label label-primary" style="font-size: 12pt;margin-bottom: 0px"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
                 </div>
-            </div>
-
-            <div class="ibox-content inspinia-timeline">
-                <div class="timeline-item">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
-                        </div>
-                        <div class="col-lg-3">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>Total No. Of Donations: </b> 10</p>
-                        </div>
-                        <div class="col-lg-3">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>Total Vol. Of Donations: </b> 55</p>
-                        </div>
-                        <div class="col-lg-4">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>Total No. Of Patients Helped: </b> 22</p>
-                        </div>
-                    </div>
+                <div class="col-lg-3">
+                    <p class="label label-info" style="font-size: 12pt;margin-bottom: 0px"><b>Total No. Of Donations: </b> 10</p>
+                </div>
+                <div class="col-lg-3">
+                    <p class="label label-primary" style="font-size: 12pt;margin-bottom: 0px"><b>Total Vol. Of Donations: </b> 55</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="label label-info" style="font-size: 12pt;margin-bottom: 0px"><b>Total No. Of Patients Helped: </b> 22</p>
                 </div>
             </div>
         </div>
@@ -44,29 +31,31 @@
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>Metrics</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="ibox-content">
+                        <h5><b>% Everyone: </b> 15</h5>
+                        <h2>15%</h2>
+                        <div class="progress progress-mini">
+                            <div style="width: 15%;" class="progress-bar"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="ibox-content inspinia-timeline">
-                <div class="timeline-item">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>% Everyone: </b> 10</p>
+                <div class="col-lg-4">
+                    <div class="ibox-content">
+                        <h5><b>% Cohort Year: </b>30</h5>
+                        <h2>30%</h2>
+                        <div class="progress progress-mini">
+                            <div style="width: 15%;" class="progress-bar"></div>
                         </div>
-                        <div class="col-lg-3">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>% Cohort Year: </b> 10</p>
-                        </div>
-                        <div class="col-lg-3">
-                            <p style="font-size: 11pt;margin-bottom: 0px"><b>% Cohort Age: </b> 55</p>
-                        </div>
-                        <div class="col-lg-4">
-                            %{--<p style="font-size: 11pt;margin-bottom: 0px"><b>Total No. Of Patients Helped: </b> 22</p>--}%
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox-content">
+                        <h5><b>% Cohort Age: </b> 55</h5>
+                        <h2>55%</h2>
+                        <div class="progress progress-mini">
+                            <div style="width: 55%;" class="progress-bar"></div>
                         </div>
                     </div>
                 </div>
