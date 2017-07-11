@@ -87,8 +87,7 @@
                     </div>
                 </div>
 
-                <div id="appointment-info-div">
-                </div>
+                <div id="appointment-info-div"></div>
 
                 <div id="calendar"></div>
             </div>

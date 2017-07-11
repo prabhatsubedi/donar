@@ -16,6 +16,7 @@
     <asset:stylesheet src="style"/>
     <script>
         var appointData = ${raw(appointData as String)}
+        var appointmentInfo_URL = '<g:createLink controller="appointment" action="appointmentDetail"/>'
     </script>
 </head>
 
@@ -67,6 +68,8 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="appointment-info-div"></div>
                 <div id="calendar"></div>
             </div>
         </div>
