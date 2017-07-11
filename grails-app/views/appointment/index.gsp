@@ -42,6 +42,13 @@
                                 <div class="row">
                                     <div class="col-sm-12 b-r"><h3 class="m-t-none m-b">Schedule Appointment</h3>
                                         <g:form role="form" controller="appointment" action="donationList">
+                                            <div class="form-group calendar-dob" style="text-align: left;">
+                                                <label>Date</label><br>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                    <input type="text" class="form-control" value="${new java.util.Date().format("MM/dd/yyyy")}" name="appointmentDate">
+                                                </div>
+                                            </div>
                                             <div class="form-group"><label>Location</label>
                                                 <select class="select2_demo form-control" name="location" required="required">
                                                     <option value="">Choose Location</option>
@@ -49,13 +56,6 @@
                                                         <option value="${l}">${l}</option>
                                                     </g:each>
                                                 </select>
-                                            </div>
-                                            <div class="form-group calendar-dob" style="text-align: left;">
-                                                <label>Day</label><br>
-                                                <div class="input-group date">
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                    <input type="text" class="form-control" value="${new java.util.Date().format("MM/dd/yyyy")}" name="appointmentDate">
-                                                </div>
                                             </div>
                                             <div>
                                                 <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Continue</strong></button>

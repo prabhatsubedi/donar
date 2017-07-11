@@ -16,6 +16,7 @@
     <asset:stylesheet src="style"/>
     <script>
         var appointData = ${raw(appointData as String)}
+        var appointmentInfo_URL = '<g:createLink controller="appointment" action="appointmentDetail"/>'
     </script>
 </head>
 
@@ -50,12 +51,13 @@
                                                     <input readonly type="text" class="form-control" value="${new java.util.Date().format("MM/dd/yyyy")}" id="appointmentDate" name="appointmentDate">
                                                 </div>
                                             </div>
-                                            <div class="form-group"><label>Type</label>
-                                                <select class="select2_demo form-control" id="donationType"  name="donationType" required="required">
-                                                    <option value="">Choose Type</option>
-                                                    <g:each in="${donationType}" var="l">
+                                            <div class="form-group"><label>Donation Type</label>
+                                                <select disabled class="select2_demo form-control" id="donationType"  name="donationType" required="required">
+                                                    %{--<option value="">Choose Type</option>--}%
+                                                    <option value="Platelets">Platelet</option>
+                                                    %{--<g:each in="${donationType}" var="l">
                                                         <option value="${l}">${l}</option>
-                                                    </g:each>
+                                                    </g:each>--}%
                                                 </select>
                                             </div>
                                             <div class="form-group"><label>Location</label>
@@ -84,6 +86,10 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="appointment-info-div">
+                </div>
+
                 <div id="calendar"></div>
             </div>
         </div>

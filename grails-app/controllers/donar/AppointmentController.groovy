@@ -38,7 +38,6 @@ class AppointmentController {
 
         List appointData = createAppointmentList(user);
 
-        println("Appoint Data..df....."+appointData)
         List donationType = ['Platelets', 'Plasma', 'Whole Blood', 'Double Red Blood Cell']
         [user: user, location: locationList, donationType: donationType, donationList: timeSlot,
          appointData: appointData as JSON, hasOwnJs: "optimalDonation"]
@@ -65,7 +64,7 @@ class AppointmentController {
             int endHour = Integer.parseInt(endTime.split(":")[0])
             int endMinute = Integer.parseInt(endTime.split(":")[1])
 
-            Map appointMap = ['title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
+            Map appointMap = ['id': it.id, 'title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
 
             appointData.add(appointMap)
         }
@@ -128,4 +127,9 @@ class AppointmentController {
         redirect(action: 'index')
     }
 
+    def appointmentDetail(){
+        UserAppointment userAppointment = UserAppointment.get(params.int("id"))
+
+        render(template: '/appointment/appointmentInfo', model: [userAppointment: userAppointment])
+    }
 }

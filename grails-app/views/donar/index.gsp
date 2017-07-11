@@ -13,10 +13,10 @@
         <div class="ibox float-e-margins">
                 <div class="row">
                     <div class="col-lg-4">
-                        <p class="label label-primary" style="font-size: 13pt"><b>Blood Type:</b> ${user.bloodType}</p>
+                        <h2><b>Blood Type:</b> ${user.bloodType}</h2>
                     </div>
                     <div class="col-lg-4">
-                        <p class="label label-primary" style="font-size: 13pt"><b>Donor Since:</b> ${user.dateCreated?.format("YYYY")}</p>
+                        <h2><b>Donor Since:</b> ${user.dateCreated?.format("YYYY")}</h2>
                     </div>
                     <div class="col-lg-4">
                         %{--<strong>Preferred Donation: </strong>N/A--}%

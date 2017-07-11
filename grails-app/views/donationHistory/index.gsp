@@ -13,16 +13,16 @@
         <div class="ibox float-e-margins">
             <div class="row">
                 <div class="col-lg-2">
-                    <p class="label label-primary" style="font-size: 12pt;margin-bottom: 0px"><b>Donor Since:</b> ${user.dateCreated?.format("YYYY")}</p>
+                    <h2 style="font-size: 12pt;margin-bottom: 0px"><b>Donor Since:</b> ${user.dateCreated?.format("YYYY")}</h2>
                 </div>
                 <div class="col-lg-3">
-                    <p class="label label-info" style="font-size: 12pt;margin-bottom: 0px"><b>Total No. Of Donations: </b> 10</p>
+                    <h2 style="font-size: 12pt;margin-bottom: 0px"><b>Tot. # of Donations: </b> 10</h2>
                 </div>
                 <div class="col-lg-3">
-                    <p class="label label-primary" style="font-size: 12pt;margin-bottom: 0px"><b>Total Vol. Of Donations: </b> 55</p>
+                    <h2 style="font-size: 12pt;margin-bottom: 0px"><b>Tot. vol. of Donation: </b> 4500mL</h2>
                 </div>
                 <div class="col-lg-4">
-                    <p class="label label-info" style="font-size: 12pt;margin-bottom: 0px"><b>Total No. Of Patients Helped: </b> 22</p>
+                    <h2 style="font-size: 12pt;margin-bottom: 0px"><b>Tot. # of Patients Helped: </b> 22</h2>
                 </div>
             </div>
         </div>
@@ -34,8 +34,8 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="ibox-content">
-                        <h5><b>% Everyone: </b> 15</h5>
-                        <h2>15%</h2>
+                        <h4>Compared to all Donors</h4>
+                        <h2>15 Percentile</h2>
                         <div class="progress progress-mini">
                             <div style="width: 15%;" class="progress-bar"></div>
                         </div>
@@ -43,17 +43,17 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="ibox-content">
-                        <h5><b>% Cohort Year: </b>30</h5>
-                        <h2>30%</h2>
+                        <h4>Compared to Donors since 2017</h4>
+                        <h2>30 Percentile</h2>
                         <div class="progress progress-mini">
-                            <div style="width: 15%;" class="progress-bar"></div>
+                            <div style="width: 30%;" class="progress-bar"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="ibox-content">
-                        <h5><b>% Cohort Age: </b> 55</h5>
-                        <h2>55%</h2>
+                        <h4>Compared to Donors Your Age</h4>
+                        <h2>55 Percentile</h2>
                         <div class="progress progress-mini">
                             <div style="width: 55%;" class="progress-bar"></div>
                         </div>
