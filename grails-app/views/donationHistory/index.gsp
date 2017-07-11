@@ -4,7 +4,7 @@
 <head>
     <meta name="layout" content="main_donar"/>
 
-    <title>Circulate | Donar Donation History</title>
+    <title>Circulate | Donation History</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         <div class="ibox float-e-margins">
             <div class="row">
                 <div class="col-lg-2">
-                    <p class="label label-primary" style="font-size: 12pt;margin-bottom: 0px"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
+                    <p class="label label-primary" style="font-size: 12pt;margin-bottom: 0px"><b>Donor Since:</b> ${user.dateCreated?.format("YYYY")}</p>
                 </div>
                 <div class="col-lg-3">
                     <p class="label label-info" style="font-size: 12pt;margin-bottom: 0px"><b>Total No. Of Donations: </b> 10</p>

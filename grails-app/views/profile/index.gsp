@@ -36,7 +36,7 @@
                         <div class="col-sm-10"><input id="confirmPassword" type="password" class="form-control" name="confirmPassword" value="${user.password}"></div>
                     </div>
                     <div class="hr-line-dashed"></div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Donar ID</label>
+                    <div class="form-group"><label class="col-lg-2 control-label">Donor ID</label>
 
                         <div class="col-lg-10"><p class="form-control-static">${user.id}</p></div>
                     </div>
