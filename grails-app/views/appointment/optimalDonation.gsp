@@ -23,9 +23,9 @@
 <body>
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
-        %{--<div class="pull-right" style="padding-bottom: 10px;">
+        <div class="pull-right" style="padding-bottom: 10px;">
             <a data-toggle="modal" class="btn btn-primary" href="#modal-form">Schedule</a>
-        </div>--}%
+        </div>
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Optimal Donation</h5>

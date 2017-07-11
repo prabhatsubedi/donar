@@ -33,6 +33,11 @@ $(document).ready(function() {
                 $(this).remove();
             }
         },
+        dayClick: function(date, jsEvent, view) {
+            $('#appointmentDate').val(date.format("MM-DD-YYYY"))
+            $('#modal-form').modal()
+
+        },
         eventClick: function (event) {
             var parameters = {'id':event.id}
             jQuery.ajax({

@@ -47,7 +47,7 @@
                                                 <label>Date</label><br>
                                                 <div class="input-group date">
                                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                    <input type="text" class="form-control" value="${new java.util.Date().format("MM/dd/yyyy")}" name="appointmentDate">
+                                                    <input type="text" class="form-control" value="${new java.util.Date().format("MM/dd/yyyy")}" id="appointmentDate" name="appointmentDate">
                                                 </div>
                                             </div>
                                             <div class="form-group"><label>Location</label>

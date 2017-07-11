@@ -9,16 +9,16 @@ import grails.converters.JSON
  */
 class AppointmentController {
     static allowedMethods = [login: "POST", update: "PUT", delete: "DELETE"]
-    List donationList = [['id': 0, 'startTime': "08:30 AM", 'endTime': "11:30 AM",'st': "08:30", 'et': "11:30", "location": "Mountain View"],
-                         ['id': 1, 'startTime': "12:30 PM", 'endTime': "02:30 PM",'st': "12:30", 'et': "14:30", "location": "Mountain View"],
-                         ['id': 2, 'startTime': "03:30 PM", 'endTime': "06:00 PM",'st': "15:30", 'et': "18:00", "location": "Mountain View"],
-                         ['id': 3, 'startTime': "08:30 AM", 'endTime': "11:30 AM",'st': "08:30", 'et': "11:30", "location": "Menlo Park"],
-                         ['id': 4, 'startTime': "12:30 PM", 'endTime': "02:30 PM",'st': "12:30", 'et': "14:30", "location": "Menlo Park"],
-                         ['id': 5, 'startTime': "03:30 PM", 'endTime': "06:00 PM",'st': "15:30", 'et': "18:00", "location": "Menlo Park"]]
+    List donationList = [['id': 0, 'startTime': "08:30 AM", 'endTime': "09:30 AM",'st': "08:30", 'et': "09:30", "location": "Mountain View"],
+                         ['id': 1, 'startTime': "12:30 PM", 'endTime': "01:30 PM",'st': "12:30", 'et': "13:30", "location": "Mountain View"],
+                         ['id': 2, 'startTime': "03:00 PM", 'endTime': "04:00 PM",'st': "15:00", 'et': "16:00", "location": "Mountain View"],
+                         ['id': 3, 'startTime': "08:30 AM", 'endTime': "09:30 AM",'st': "08:30", 'et': "09:30", "location": "Menlo Park"],
+                         ['id': 4, 'startTime': "12:30 PM", 'endTime': "01:30 PM",'st': "12:30", 'et': "01:30", "location": "Menlo Park"],
+                         ['id': 5, 'startTime': "03:00 PM", 'endTime': "04:00 PM",'st': "15:00", 'et': "16:00", "location": "Menlo Park"]]
     List locationList = ["Mountain View", "Menlo Park", "Palo Alto", "Google Mobile"]
-    List timeSlot = [['id': 0, 'startTime': "08:30 AM", 'endTime': "11:30 AM",'st': "08:30", 'et': "11:30"],
-                         ['id': 1, 'startTime': "12:30 PM", 'endTime': "02:30 PM",'st': "12:30", 'et': "14:30"],
-                         ['id': 2, 'startTime': "03:30 PM", 'endTime': "06:00 PM",'st': "15:30", 'et': "18:00"]]
+    List timeSlot = [['id': 0, 'startTime': "08:30 AM", 'endTime': "09:30 AM",'st': "08:30", 'et': "09:30", "location": "Mountain View"],
+                     ['id': 1, 'startTime': "12:30 PM", 'endTime': "01:30 PM",'st': "12:30", 'et': "13:30", "location": "Mountain View"],
+                     ['id': 2, 'startTime': "03:00 PM", 'endTime': "04:00 PM",'st': "15:00", 'et': "16:00", "location": "Mountain View"]]
     List donationType = ['Platelets', 'Plasma', 'Whole Blood', 'Double Red Cell']
 
     UserService userService
