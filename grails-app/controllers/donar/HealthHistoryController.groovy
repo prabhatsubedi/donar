@@ -12,7 +12,7 @@ class HealthHistoryController {
     def index(){
         User user = userService.getUser(session.user.id);
 
-        [user: user]
+        [user: user, hasOwnJs: "healthHistory"]
     }
 
 }

@@ -16,7 +16,7 @@
                         <p class="label label-primary" style="font-size: 13pt"><b>Blood Type:</b> ${user.bloodType}</p>
                     </div>
                     <div class="col-lg-4">
-                        <p class="label label-primary" style="font-size: 13pt"><b>Donar Since:</b> ${user.dateCreated?.format("YYYY")}</p>
+                        <p class="label label-primary" style="font-size: 13pt"><b>Donor Since:</b> ${user.dateCreated?.format("YYYY")}</p>
                     </div>
                     <div class="col-lg-4">
                         %{--<strong>Preferred Donation: </strong>N/A--}%
@@ -27,16 +27,22 @@
 </div>
 <div class="row">
 <div class="col-lg-4">
-    <div class="widget navy-bg p-lg text-center" style="min-height: 185px">
+    <g:link controller="appointment" action="optimalDonation">
+    <div class="widget navy-bg p-lg text-center" style="min-height: 185px; max-height: 185px">
         <div class="m-b-md">
-            <h3 class="font-bold">
-                Optimal Donation: Platelets
-            </h3>
-            <h1 class="font-bold">
-                8-1-17 to 8-8-17
+            <h2 class="font-bold">
+                Optimal Donation:
+            </h2>
+            <h1 class="font-bold" style="margin-top: 10px;">
+                Platelets
             </h1>
+            <h2 class="font-bold">
+                <i class="fa fa-calendar-o"></i>
+                8-1-17 to 8-8-17
+            </h2>
         </div>
     </div>
+    </g:link>
     <g:link controller="appointment" action="index">
         <div class="widget navy-bg p-lg text-center">
             <div class="m-b-md">

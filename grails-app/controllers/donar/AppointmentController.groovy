@@ -16,6 +16,9 @@ class AppointmentController {
                          ['id': 4, 'startTime': "12:30 PM", 'endTime': "02:30 PM",'st': "12:30", 'et': "14:30", "location": "Menlo Park"],
                          ['id': 5, 'startTime': "03:30 PM", 'endTime': "06:00 PM",'st': "15:30", 'et': "18:00", "location": "Menlo Park"]]
     List locationList = ["Mountain View", "Menlo Park", "Palo Alto", "Google Mobile"]
+    List timeSlot = [['id': 0, 'startTime': "08:30 AM", 'endTime': "11:30 AM",'st': "08:30", 'et': "11:30"],
+                         ['id': 1, 'startTime': "12:30 PM", 'endTime': "02:30 PM",'st': "12:30", 'et': "14:30"],
+                         ['id': 2, 'startTime': "03:30 PM", 'endTime': "06:00 PM",'st': "15:30", 'et': "18:00"]]
     List donationType = ['Platelets', 'Plasma', 'Whole Blood', 'Double Red Cell']
 
     UserService userService
@@ -24,12 +27,24 @@ class AppointmentController {
     def index(){
         User user = userService.getUser(session.user.id);
 
-        /*{
-            title: 'Lunch',
-            start: new Date(y, m, d, 12, 0),
-            end: new Date(y, m, d, 14, 0)
-        }*/
+        List appointData = createAppointmentList(user);
 
+        println("Appoint Data..df....."+appointData)
+        [user: user, location: locationList, appointData: appointData as JSON, hasOwnJs: "appointment"]
+    }
+
+    def optimalDonation(){
+        User user = userService.getUser(session.user.id);
+
+        List appointData = createAppointmentList(user);
+
+        println("Appoint Data..df....."+appointData)
+        List donationType = ['Platelets', 'Plasma', 'Whole Blood', 'Double Red Blood Cell']
+        [user: user, location: locationList, donationType: donationType, donationList: timeSlot,
+         appointData: appointData as JSON, hasOwnJs: "optimalDonation"]
+    }
+
+    private List createAppointmentList(User user){
         List<UserAppointment> userAppointmentList = appointmentService.userAppointmentList(user);
 
         List appointData = []
@@ -55,10 +70,7 @@ class AppointmentController {
             appointData.add(appointMap)
         }
 
-        /*Map appointMap = ['title': "Mountain View", 'start': [2017, 6, 9, 12, 30], "end": [2017, 6, 9, 15, 30]]
-        List appointData = [(appointMap as JSON)]*/
-        println("Appoint Data..df....."+appointData)
-        [user: user, location: locationList, appointData: appointData as JSON]
+        return appointData;
     }
 
     def donationList(){
@@ -70,6 +82,28 @@ class AppointmentController {
 
         [user: user, location: locationList, selectedLocation: selectedLocation, appointmentDate: appointmentDate,
          data: filteredDonationList, donationType: donationType]
+    }
+
+    def create(){
+        int index = params.int("donationIndex")
+        Map appointment = donationList.get(index)
+        println "Appointment Detail...."+appointment
+
+        User user = userService.getUser(session.user.id);
+
+        UserAppointment userAppointment = new UserAppointment();
+        userAppointment.setUser(user)
+        userAppointment.setStartTime(appointment.st)
+        userAppointment.setEndTime(appointment.et)
+        userAppointment.setLocation(params.location)
+        userAppointment.setDonationType(params.donationType)
+
+        Date date = Date.parse("MM-d-yyyy", params.appointmentDate)
+        userAppointment.setDate(date)
+
+        appointmentService.createUserAppoinment(userAppointment)
+
+        redirect(action: 'optimalDonation')
     }
 
     def saveAppointment(){

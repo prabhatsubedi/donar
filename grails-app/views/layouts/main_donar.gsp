@@ -166,6 +166,9 @@
 <asset:javascript src="plugins/fullcalendar/fullcalendar.min.js"/>
 <!-- Data picker -->
 <asset:javascript src="plugins/datapicker/bootstrap-datepicker.js"/>
+<g:if test="${hasOwnJs}">
+    <asset:javascript src="${hasOwnJs}.js"/>
+</g:if>
 <!-- For All Pages-->
 <asset:javascript src="global.js"/>
 
