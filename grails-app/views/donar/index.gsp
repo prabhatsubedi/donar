@@ -38,7 +38,7 @@
             </h1>
             <h2 class="font-bold">
                 <i class="fa fa-calendar-o"></i>
-                8-1-17 to 8-8-17
+                8-1-17 to 8-10-17
             </h2>
         </div>
     </div>

@@ -5496,10 +5496,13 @@ del {
 }
 .product-imitation {
   text-align: center;
-  padding: 90px 0;
+  padding: 30px 0;
   background-color: #f8f8f9;
   color: #bebec3;
   font-weight: 600;
+  min-height: 210px;
+  max-height: 210px;
+
 }
 .cart-product-imitation {
   text-align: center;
