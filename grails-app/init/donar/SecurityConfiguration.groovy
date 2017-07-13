@@ -21,6 +21,8 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers('/register/**').hasAnyRole('ANONYMOUS')
                 .antMatchers('/admin/**').hasAnyRole('ADMIN')
+                .antMatchers('/schedule/**').hasAnyRole('ADMIN')
+                .antMatchers('/generateList/**').hasAnyRole('ADMIN')
                 .antMatchers('/dashBoard/**').hasAnyRole('USER', 'ADMIN')
                 .antMatchers('/appointment/**').hasAnyRole('DONAR')
                 .antMatchers('/donar/**').hasAnyRole('DONAR')

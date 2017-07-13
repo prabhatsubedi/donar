@@ -21,7 +21,13 @@ class AllInterceptor {
 		if(session.user == null){
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-			session.user = User.findWhere(username: auth.getName())
+			if(auth){
+				User user = User.findWhere(username: auth?.getName())
+				if(user != null){
+					session.user = user
+				}
+			}
+
 		}
 
 		return true

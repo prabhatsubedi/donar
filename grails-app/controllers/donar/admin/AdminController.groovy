@@ -1,4 +1,4 @@
-package donar
+package donar.admin
 
 import com.donar.BloodInventory
 import grails.converters.JSON
@@ -21,50 +21,60 @@ class AdminController {
 
         println "currentInventoryLevel..."+plateletList.currentInventoryLevel
 
+        Map currentInventoryLevel = [:]
         Map currentInventoryPercent = [:]
         Map currentInventoryGap = [:]
         Map weeklyProjectionMap = [:]
         Map weeklyGapMap = [:]
 
+        List dataInventory = []
         List dataPercent = []
         List dataGap = []
         List dataWeekly = []
         List dataWeeklyGap = []
 
         rbcList.each {
+            dataInventory.add(it.currentInventoryLevel)
             dataPercent.add(it.currentInventoryLevel / it.optimalLevel)
             dataGap.add(it.optimalLevel - it.currentInventoryLevel)
             dataWeekly.add(weeklyProjectionPercent(it))
             dataWeeklyGap.add(weeklyProjectionGap(it))
         }
+        currentInventoryLevel['rbc'] = dataInventory
         currentInventoryPercent['rbc'] = dataPercent
         currentInventoryGap['rbc'] = dataGap
         weeklyProjectionMap['rbc'] = dataWeekly
         weeklyGapMap['rbc'] = dataWeeklyGap
 
+        dataInventory = []
         dataPercent = []
         dataGap = []
         dataWeekly = []
         plateletList.each {
+            dataInventory.add(it.currentInventoryLevel)
             dataPercent.add(it.currentInventoryLevel / it.optimalLevel)
             dataGap.add(it.optimalLevel - it.currentInventoryLevel)
             dataWeekly.add(weeklyProjectionPercent(it))
             dataWeeklyGap.add(weeklyProjectionGap(it))
         }
+        currentInventoryLevel['platelet'] = dataInventory
         currentInventoryPercent['platelet'] = dataPercent
         currentInventoryGap['platelet'] = dataGap
         weeklyProjectionMap['platelet'] = dataWeekly
         weeklyGapMap['platelet'] = dataWeeklyGap
 
+        dataInventory = []
         dataPercent = []
         dataGap = []
         dataWeekly = []
         plasmaList.each {
+            dataInventory.add(it.currentInventoryLevel)
             dataPercent.add(it.currentInventoryLevel / it.optimalLevel)
             dataGap.add(it.optimalLevel - it.currentInventoryLevel)
             dataWeekly.add(weeklyProjectionPercent(it))
             dataWeeklyGap.add(weeklyProjectionGap(it))
         }
+        currentInventoryLevel['plasma'] = dataInventory
         currentInventoryPercent['plasma'] = dataPercent
         currentInventoryGap['plasma'] = dataGap
         weeklyProjectionMap['plasma'] = dataWeekly
@@ -72,8 +82,10 @@ class AdminController {
 
         Map forcastedGraphDataMap = prepareForcastedGraphData()
 
-        [count: count, rbcList: rbcList, plateletList: plateletList, plasmaList: plasmaList, currentInventoryPercent: currentInventoryPercent, currentInventoryGap: currentInventoryGap,
-         weeklyProjectionMap: weeklyProjectionMap, forcastedGraphDataMap: (forcastedGraphDataMap as JSON), bloodType: BLOOD_TYPE, weeklyGapMap: weeklyGapMap]
+        [count: count, currentInventoryLevel: currentInventoryLevel as JSON, rbcList: rbcList,
+         plateletList: plateletList, plasmaList: plasmaList, currentInventoryPercent: currentInventoryPercent as JSON,
+         currentInventoryGap: currentInventoryGap , weeklyProjectionMap: weeklyProjectionMap as JSON, forcastedGraphDataMap: (forcastedGraphDataMap as JSON),
+         bloodType: BLOOD_TYPE, weeklyGapMap: weeklyGapMap as JSON, hasOwnJs: "dashboard"]
     }
     
     private Double weeklyProjectionPercent(BloodInventory bloodInventory){
