@@ -68,7 +68,7 @@
                     <g:link controller="account" action="index"><i class="fa fa-money"></i> <span class="nav-label">Accounts</span></g:link>
                 </li>
                 <li class="${(controllerName == 'donarContact')?'active':''}">
-                    <g:link controller="donarContact" action="index"><i class="fa fa-address-card"></i> <span class="nav-label">Donar Contacts</span></g:link>
+                    <g:link controller="donarContact" action="index"><i class="fa fa-address-card"></i> <span class="nav-label">Donor Contacts</span></g:link>
                 </li>
                 <li class="${(controllerName == 'adminAppointment')?'active':''}">
                     <g:link controller="adminAppointment" action="index"><i class="fa fa-calendar-check-o"></i> <span class="nav-label">Appointments</span></g:link>
