@@ -58,20 +58,23 @@
                 <li class="${(controllerName == 'admin')?'active':''}">
                     <a href="/"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
                 </li>
-                <li class="${(controllerName == 'schedule')?'active':''}">
-                    <g:link controller="schedule" action="index"><i class="fa fa-clock-o"></i> <span class="nav-label">Schedule</span></g:link>
-                </li>
-                <li class="${(controllerName == 'generateList')?'active':''}">
-                    <g:link controller="generateList" action="index"><i class="fa fa-calendar"></i> <span class="nav-label">Generate List View</span></g:link>
-                </li>
                 <li class="${(controllerName == 'account')?'active':''}">
-                    <g:link controller="account" action="index"><i class="fa fa-money"></i> <span class="nav-label">Accounts</span></g:link>
+                    <g:link controller="account" action="index"><i class="fa fa-user-circle"></i> <span class="nav-label">Accounts</span></g:link>
                 </li>
                 <li class="${(controllerName == 'donarContact')?'active':''}">
-                    <g:link controller="donarContact" action="index"><i class="fa fa-address-card"></i> <span class="nav-label">Donor Contacts</span></g:link>
+                    <g:link controller="donarContact" action="index"><i class="fa fa-address-book"></i> <span class="nav-label">Donor Contacts</span></g:link>
+                </li>
+                <li class="${(controllerName == 'schedule')?'active':''}">
+                    <g:link controller="schedule" action="index"><i class="fa fa-calendar"></i> <span class="nav-label">Schedule</span></g:link>
                 </li>
                 <li class="${(controllerName == 'adminAppointment')?'active':''}">
-                    <g:link controller="adminAppointment" action="index"><i class="fa fa-calendar-check-o"></i> <span class="nav-label">Appointments</span></g:link>
+                    <g:link controller="adminAppointment" action="index"><i class="fa fa-clock-o"></i> <span class="nav-label">Appointments</span></g:link>
+                </li>
+                <li class="${(controllerName == 'generateList')?'active':''}">
+                    <g:link controller="generateList" action="index"><i class="fa fa-list-ol"></i> <span class="nav-label">Generate List View</span></g:link>
+                </li>
+                <li class="${(controllerName == 'inventory')?'active':''}">
+                    <g:link controller="inventory" action="index"><i class="fa fa-bar-chart"></i> <span class="nav-label">Inventory</span></g:link>
                 </li>
 
             </ul>
