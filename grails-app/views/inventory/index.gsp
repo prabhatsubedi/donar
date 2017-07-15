@@ -17,7 +17,10 @@
 
 <body>
     <div class="row">
-        <div class="col-lg-6">
+        %{--<div class="pull-right" style="padding-bottom: 10px;">
+            <a data-toggle="modal" class="btn btn-primary" href="#account-create">Create New Account</a>
+        </div>--}%
+        <div class="col-lg-6" %{--style="margin-top: 44px;"--}%>
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
                     <div>
