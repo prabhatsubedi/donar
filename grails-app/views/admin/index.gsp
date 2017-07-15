@@ -10,7 +10,7 @@
 <body>
 <div class="row">
     <div class="col-lg-4">
-        <g:link controller="appointment" action="index">
+        <g:link controller="account" action="index">
             <div class="widget navy-bg p-lg text-center">
                 <div class="m-b-md">
                     <i class="fa fa-user-circle fa-4x"></i>
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </g:link>
-        <g:link controller="appointment" action="index">
+        <g:link controller="adminAppointment" action="index">
             <div class="widget navy-bg p-lg text-center">
                 <div class="m-b-md">
                     <i class="fa fa-clock-o fa-4x"></i>
@@ -32,7 +32,7 @@
         </g:link>
     </div>
     <div class="col-lg-4">
-        <g:link controller="donationHistory" action="index">
+        <g:link controller="donarContact" action="index">
             <div class="widget blue-bg p-lg text-center">
                 <div class="m-b-md">
                     <i class="fa fa-address-book fa-4x"></i>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </g:link>
-        <g:link controller="reward" action="index">
+        <g:link controller="generateList" action="index">
             <div class="widget blue-bg p-lg text-center">
                 <div class="m-b-md">
                     <i class="fa fa-list-ol fa-4x"></i>
@@ -54,7 +54,7 @@
         </g:link>
     </div>
     <div class="col-lg-4">
-        <g:link controller="healthHistory" action="index">
+        <g:link controller="schedule" action="index">
             <div class="widget red-bg p-lg text-center">
                 <div class="m-b-md">
                     <i class="fa fa-calendar fa-4x"></i>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </g:link>
-        <g:link controller="message" action="index">
+        <g:link controller="inventory" action="index">
             <div class="widget red-bg p-lg text-center">
                 <div class="m-b-md">
                     <i class="fa fa-bar-chart fa-4x"></i>
