@@ -58,3 +58,12 @@ function selectDonationTime(url, index, appointmentDate){
     }
     location.href = url+"?index="+index+"&appointmentDate="+appointmentDate+"&donationType="+donationType
 }
+
+function pushCallDetail(){
+    $('#call-stat').show()
+}
+
+function loadFeedbackPopup(){
+    var val = $('#callFeedback').val();
+    $("#feedback-"+val).modal()
+}

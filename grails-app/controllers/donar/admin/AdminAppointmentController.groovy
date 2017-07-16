@@ -1,5 +1,6 @@
 package donar.admin
 
+import com.donar.Query
 import donar.CommonController
 import grails.converters.JSON
 
@@ -10,6 +11,7 @@ class AdminAppointmentController extends CommonController{
     static allowedMethods = [login: "POST", update: "PUT", delete: "DELETE"]
 
     def index(){
-        [location: locationList, appointData: [] as JSON, hasOwnJs: "schedule"]
+        List<Query> queryList = Query.list();
+        [queryList: queryList, locationList: locationList, hasOwnJs: "schedule"]
     }
 }
