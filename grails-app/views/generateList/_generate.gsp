@@ -1,0 +1,70 @@
+<div id="generate-new-query" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <g:form class="form-horizontal" controller="generateList" action="search">
+                        <div class="col-sm-12"><h3 class="m-t-none m-b">Generate New Query</h3>
+                            <div class="form-group"><label class="col-lg-5 control-label">Age</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${ageList}" name="age" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Ethnicity</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${ethnicityList}" name="ethnicity"class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Gender</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${genderList}" name="gender" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Blood Type</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${bloodTypeList}" name="bloodType" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">CMV</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${cmvList}" name="cmv" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Donor Index</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${donorIndexList}" name="donorIndex" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Preferred Donation Type</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${preferredDonationTypeList}" name="preferredDonationType" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Preferred Contact Method</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${preferredContactMethodList}" name="preferredContactMethod" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Preferred Donation Location</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${preferredDonationLocationList}" name="preferredDonatoinLocation" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">Eligible For</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${eligibleForList}" name="eligibleFor" class="form-control" />
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">
+                                    <strong>Close</strong>
+                                </button>
+                                <g:submitButton class="btn btn-sm btn-primary pull-right" style="margin-right: 15px;" name="save" value="Generate"/>
+                            </div>
+                        </div>
+                    </g:form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
