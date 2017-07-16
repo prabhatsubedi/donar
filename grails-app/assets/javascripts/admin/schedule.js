@@ -34,7 +34,7 @@ $(document).ready(function() {
             }
         },
         dayClick: function(date, jsEvent, view) {
-            $('#appointmentDate').val(date.format("MM-DD-YYYY"))
+            $('#appointmentDate').val(date.format("MM/DD/YYYY"))
             $('#modal-form').modal()
 
         },

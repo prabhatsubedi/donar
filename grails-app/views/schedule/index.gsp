@@ -23,9 +23,6 @@
 <body>
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
-        <div class="pull-right" style="padding-bottom: 10px;">
-            <a data-toggle="modal" class="btn btn-primary" href="#modal-form">Schedule</a>
-        </div>
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Schedule </h5>
@@ -37,39 +34,36 @@
             </div>
             <div class="ibox-content">
                 <div id="modal-form" class="modal fade" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-sm">
                         <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">Locations</h4>
+                            </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-12 b-r"><h3 class="m-t-none m-b">Schedule Appointment</h3>
-                                        <g:form role="form" controller="appointment" action="donationList">
-                                            <div class="form-group calendar-dob" style="text-align: left;">
-                                                <label>Date</label><br>
-                                                <div class="input-group date">
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                    <input type="text" class="form-control" value="${new java.util.Date().format("MM/dd/yyyy")}" id="appointmentDate" name="appointmentDate">
-                                                </div>
-                                            </div>
-                                            <div class="form-group"><label>Location</label>
-                                                <select class="select2_demo form-control" name="location" required="required">
-                                                    <option value="">Choose Location</option>
-                                                    <g:each in="${location}" var="l">
-                                                        <option value="${l}">${l}</option>
-                                                    </g:each>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Continue</strong></button>
-                                            </div>
-                                        </g:form>
-                                    </div>
+                                <div class="form-group"><h3>Fixed Sites</h3>
+                                    <g:hiddenField name="appointmentDate"/>
+                                    <g:each in="${location}" var="row">
+                                        <div>
+                                            <button style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>
+                                        </div>
+                                    </g:each>
+                                </div>
+                                <div class="form-group"><h3>Mobile Sites</h3>
+                                    <g:each in="${mobileLocationList}" var="row">
+                                        <div>
+                                            <button style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>
+                                        </div>
+                                    </g:each>
                                 </div>
                             </div>
+                           %{-- <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>--}%
                         </div>
                     </div>
                 </div>
-
-                <div id="schedule-info-div"></div>
                 <div id="calendar"></div>
             </div>
         </div>

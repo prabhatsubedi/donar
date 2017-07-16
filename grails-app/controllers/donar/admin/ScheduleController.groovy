@@ -11,6 +11,7 @@ class ScheduleController extends CommonController{
     static allowedMethods = [login: "POST", update: "PUT", delete: "DELETE"]
 
     def index(){
-        [location: locationList, appointData: [] as JSON, hasOwnJs: "schedule"]
+        List mobileLocationList = ["Mob1", "Mob2", "Mob3"]
+        [location: locationList, mobileLocationList: mobileLocationList, appointData: [] as JSON, hasOwnJs: "schedule"]
     }
 }
