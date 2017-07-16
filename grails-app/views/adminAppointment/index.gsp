@@ -36,7 +36,8 @@
                         </div>
                     </div>
                     <div class="col-lg-7">
-                        <div class="col-sm-12"><h3>Donar Information</h3>
+                        <div class="col-sm-12" style="background: #ddd;">
+                            <h3>Donar Information</h3>
                             <form id="donation-info" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-lg-4 control-label">Name :</label>
@@ -98,7 +99,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div id="call-stat" class="row" style="display: none;">
+                        <div id="call-stat" class="row" style="display: none;background: #ddd;">
                             <div class="col-sm-12 b-r"><h3 class="m-t-none m-b">Call Statistics</h3>
                                 <g:form role="form" controller="adminAppointment" action="index">
                                     <div class="form-group">
