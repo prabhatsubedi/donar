@@ -34,7 +34,7 @@
                             <th>Phone Number</th>
                             <th>Email</th>
                             <th>Birth Date</th>
-                            <th>Role</th>
+                            %{--<th>Role</th>--}%
                         </tr>
                         </thead>
                         <tbody id="blood-product-rbc">
@@ -47,7 +47,7 @@
                                     <td>${row.user.phoneNumber}</td>
                                     <td>${row.user.email}</td>
                                     <td>${row.user.birthDate?.format("MM/dd/yyyy")}</td>
-                                    <td>${row.authority.authority}</td>
+                                    %{--<td>${row.authority.authority}</td>--}%
                                 </tr>
                             </g:each>
                         </tbody>

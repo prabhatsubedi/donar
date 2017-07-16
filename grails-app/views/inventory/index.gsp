@@ -5,7 +5,7 @@
 <head>
     <meta name="layout" content="main_admin"/>
 
-    <title>Circulate Admin Dashboard</title>
+    <title>Circulate | Inventory</title>
     <script>
         var currentInventoryLevel = ${raw(currentInventoryLevel as String)}
         var currentInventoryPercent = ${raw(currentInventoryPercent as String)}
