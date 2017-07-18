@@ -10,6 +10,9 @@
         margin-bottom: 0px;
     }
     </style>
+    <script>
+        var pastDonation_URL = '<g:createLink controller="donarContact" action="pastDonation"/>'
+    </script>
 </head>
 
 <body>
@@ -37,23 +40,23 @@
                     </div>
                     <div class="col-lg-7">
                         <div class="col-sm-12" style="background: #ddd;">
-                            <h3>Donar Information</h3>
+                            <h3>Donor Information</h3>
                             <form id="donation-info" class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Name :</label>
-                                    <div class="col-lg-6">
+                                    <label class="col-lg-5 control-label">Name :</label>
+                                    <div class="col-lg-5">
                                         <p class="form-control-static">Narayan</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Address :</label>
-                                    <div class="col-lg-6">
+                                    <label class="col-lg-5 control-label">Address :</label>
+                                    <div class="col-lg-5">
                                         <p class="form-control-static">123 street, New York</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Phone Number :</label>
-                                    <div class="col-lg-6" style="margin-top: -8px;">
+                                    <label class="col-lg-5 control-label">Phone Number :</label>
+                                    <div class="col-lg-5" style="margin-top: -8px;">
                                         <p class="form-control-static">
                                             <span style="margin-right: 20px">650-323-333</span>
                                             <i onclick="pushCallDetail();" class="fa fa-phone-square fa-2x" aria-hidden="true"></i> &nbsp; &nbsp;
@@ -63,8 +66,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Email :</label>
-                                    <div class="col-lg-6" style="margin-top: -8px;">
+                                    <label class="col-lg-5 control-label">Email :</label>
+                                    <div class="col-lg-5" style="margin-top: -8px;">
                                         <p class="form-control-static">
                                             <span style="margin-right: 20px">email@example.com</span>
                                             <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
@@ -72,24 +75,32 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Location Preference :</label>
-                                    <div class="col-lg-6">
+                                    <label class="col-lg-5 control-label">Location Preference :</label>
+                                    <div class="col-lg-5">
                                         <p class="form-control-static">
                                             <span style="margin-right: 20px">Mountain View</span>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Donation History :</label>
-                                    <div class="col-lg-6">
+                                    <label class="col-lg-5 control-label">Preferred Method of Contact :</label>
+                                    <div class="col-lg-5">
                                         <p class="form-control-static">
-                                            <span style="margin-right: 20px">----------</span>
+                                            <span style="margin-right: 20px">Phone</span>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label">Donor Index :</label>
-                                    <div class="col-lg-6">
+                                    <label class="col-lg-5 control-label">Donation History :</label>
+                                    <div class="col-lg-5">
+                                        <p class="form-control-static">
+                                            <a style="margin-right: 20px" onclick="showPastDonation(${1})" href="#">Click Here</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-5 control-label">Donor Index :</label>
+                                    <div class="col-lg-5">
                                         <p class="form-control-static">
                                             <span style="margin-right: 20px">90%</span>
                                         </p>
@@ -131,6 +142,7 @@
                 </div>
             </div>
             <g:render template="feedbackPopUp"/>
+            <div id="past-donation-form-div"></div>
         </div>
     </div>
 </div>

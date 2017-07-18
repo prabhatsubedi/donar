@@ -67,3 +67,24 @@ function loadFeedbackPopup(){
     var val = $('#callFeedback').val();
     $("#feedback-"+val).modal()
 }
+
+function showPastDonation(id){
+    $('#donar-contact-info').modal('toggle');
+    var parameters = {'id':id}
+    jQuery.ajax({
+        type:'POST',
+        data: parameters,
+        url:pastDonation_URL,
+        success:function (data, textStatus) {
+            $('#past-donation-form-div').html(data);
+            $('#past-donation-form').modal();
+
+        },
+        error:function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Error!")
+        },
+        complete:function (XMLHttpRequest, textStatus) {
+            //$('#error-message').hide();
+        }
+    });
+}
