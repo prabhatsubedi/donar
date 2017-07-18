@@ -16,7 +16,7 @@
     <asset:stylesheet src="style"/>
     <script>
         var appointData = ${raw(appointData as String)}
-        var appointmentInfo_URL = '<g:createLink controller="appointment" action="appointmentDetail"/>'
+        var byDayPlace_URL = '<g:createLink controller="schedule" action="byDayPlace"/>'
     </script>
 </head>
 
@@ -45,14 +45,14 @@
                                     <g:hiddenField name="appointmentDate"/>
                                     <g:each in="${location}" var="row">
                                         <div>
-                                            <button style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>
+                                            <button onclick="viewByDayAndPlace('${row}')" style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>
                                         </div>
                                     </g:each>
                                 </div>
                                 <div class="form-group"><h3>Mobile Sites</h3>
                                     <g:each in="${mobileLocationList}" var="row">
                                         <div>
-                                            <button style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>
+                                            <button onclick="viewByDayAndPlace('${row}')" style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>
                                         </div>
                                     </g:each>
                                 </div>

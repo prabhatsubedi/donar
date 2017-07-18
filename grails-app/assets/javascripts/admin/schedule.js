@@ -62,3 +62,25 @@ $(document).ready(function() {
     });
 
 });
+
+function viewByDayAndPlace(loc){
+    var date = $("#appointmentDate").val();
+    location.href = byDayPlace_URL+"?date="+date+"&location="+loc
+    /*var parameters = {'date':date, 'location': location}
+    jQuery.ajax({
+        type:'POST',
+        data: parameters,
+        url:byDayPlace_URL,
+        success:function (data, textStatus) {
+            $('#past-donation-form-div').html(data);
+            $('#past-donation-form').modal();
+
+        },
+        error:function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Error!")
+        },
+        complete:function (XMLHttpRequest, textStatus) {
+            //$('#error-message').hide();
+        }
+    });*/
+}

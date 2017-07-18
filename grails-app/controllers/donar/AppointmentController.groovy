@@ -27,7 +27,7 @@ class AppointmentController {
     def index(){
         User user = userService.getUser(session.user.id);
 
-        List appointData = createAppointmentList(user);
+        List appointData = appointmentService.createAppointmentList(user);
 
         println("Appoint Data..df....."+appointData)
         [user: user, location: locationList, appointData: appointData as JSON, hasOwnJs: "appointment"]
@@ -36,40 +36,11 @@ class AppointmentController {
     def optimalDonation(){
         User user = userService.getUser(session.user.id);
 
-        List appointData = createAppointmentList(user);
+        List appointData = appointmentService.createAppointmentList(user);
 
         List donationType = ['Platelets', 'Plasma', 'Whole Blood', 'Double Red Blood Cell']
         [user: user, location: locationList, donationType: donationType, donationList: timeSlot,
          appointData: appointData as JSON, hasOwnJs: "optimalDonation"]
-    }
-
-    private List createAppointmentList(User user){
-        List<UserAppointment> userAppointmentList = appointmentService.userAppointmentList(user);
-
-        List appointData = []
-        userAppointmentList.each{
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(it.date)
-
-            int year = cal.get(Calendar.YEAR);
-            int month = cal.get(Calendar.MONTH) + 1; // Note: zero based!
-            int day = cal.get(Calendar.DAY_OF_MONTH);
-
-            String startTime = it.startTime
-            String endTime = it.endTime
-
-            int startHour = Integer.parseInt(startTime.split(":")[0])
-            int startMinute = Integer.parseInt(startTime.split(":")[1])
-
-            int endHour = Integer.parseInt(endTime.split(":")[0])
-            int endMinute = Integer.parseInt(endTime.split(":")[1])
-
-            Map appointMap = ['id': it.id, 'title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
-
-            appointData.add(appointMap)
-        }
-
-        return appointData;
     }
 
     def donationList(){
@@ -119,7 +90,7 @@ class AppointmentController {
         userAppointment.setLocation(appointment.location)
         userAppointment.setDonationType(params.donationType)
 
-        Date date = Date.parse("MM/dd/yyyy", params.appointmentDate)
+        Date date = Date.parse("MM-dd-yyyy", params.appointmentDate)
         userAppointment.setDate(date)
 
         appointmentService.createUserAppoinment(userAppointment)
