@@ -14,7 +14,7 @@
                         <div class="form-group"><label>Phone Number : </label>
                             <span style="margin-right: 20px">${account.phoneNumber}</span>
                             <i class="fa fa-phone-square fa-2x" aria-hidden="true"></i> &nbsp; &nbsp;
-                            <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
+                            %{--<i class="fa fa-comments fa-2x" aria-hidden="true"></i>--}%
                         </div>
                         <div class="form-group"><label>Email</label>
                             <input readonly type="text" class="form-control" value="${account.email}">

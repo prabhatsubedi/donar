@@ -7,6 +7,7 @@
     <title>Circulate | Donor Contacts</title>
     <script>
         var donarInfo_URL = '<g:createLink controller="donarContact" action="donarDetail"/>'
+        var pastDonation_URL = '<g:createLink controller="donarContact" action="pastDonation"/>'
     </script>
 </head>
 
@@ -56,6 +57,7 @@
             </div>
         </div>
         <div id="donar-contact-info-div"></div>
+        <div id="past-donation-form-div"></div>
     </div>
 </div>
 

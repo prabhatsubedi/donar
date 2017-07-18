@@ -1,4 +1,4 @@
-<div id="donar-contact-info" class="modal fade" aria-hidden="true">
+<div id="donar-contact-info" class="modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -29,8 +29,14 @@
                         <div class="form-group"><label>Address</label>
                             <input readonly type="text" class="form-control" value="${user.streetAddress}">
                         </div>
+                        <div class="form-group"><label>Preferred Contact Method</label>
+                            <input readonly type="text" class="form-control" value="Phone">
+                        </div>
+                        <div class="form-group"><label>Comment</label>
+                            <textarea class="form-control" name="comment" />
+                        </div>
                         <div class="form-group">
-                            <label><a href="#">Past Donations</a></label><span style="margin-left: 60px;">Average Donor Index: 94%</span>
+                            <label><a onclick="showPastDonation(${user.id})" href="#">Past Donations</a></label><span style="margin-left: 60px;">Average Donor Index: 94%</span>
                         </div>
                         <div>
                             <button class="btn btn-sm btn-primary pull-right m-t-n-xs" data-dismiss="modal"><strong>Close</strong></button>
