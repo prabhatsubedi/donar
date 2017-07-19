@@ -4,7 +4,7 @@
 <head>
     <meta name="layout" content="main_admin"/>
 
-    <title>Circulate | List Generate</title>
+    <title>Circulate | List Generator</title>
 </head>
 
 <body>

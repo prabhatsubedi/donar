@@ -71,7 +71,7 @@
                     <g:link controller="adminAppointment" action="index"><i class="fa fa-clock-o"></i> <span class="nav-label">Appointments</span></g:link>
                 </li>
                 <li class="${(controllerName == 'generateList')?'active':''}">
-                    <g:link controller="generateList" action="index"><i class="fa fa-list-ol"></i> <span class="nav-label">List Generate</span></g:link>
+                    <g:link controller="generateList" action="index"><i class="fa fa-list-ol"></i> <span class="nav-label">List Generator</span></g:link>
                 </li>
                 <li class="${(controllerName == 'inventory')?'active':''}">
                     <g:link controller="inventory" action="index"><i class="fa fa-bar-chart"></i> <span class="nav-label">Inventory</span></g:link>
@@ -87,7 +87,9 @@
             <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <a href="" class="minimalize-styl-2 btn btn-primary pull-right" style="float: right">Change Inventory Settings</a>
+                    <g:if test="${controllerName.equals("inventory")}">
+                        <a href="" class="minimalize-styl-2 btn btn-primary pull-right" style="float: right">Change Inventory Settings</a>
+                    </g:if>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
