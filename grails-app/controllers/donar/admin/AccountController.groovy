@@ -1,6 +1,7 @@
 package donar.admin
 
 import com.donar.Account
+import com.donar.AccountSchedule
 import com.donar.Authority
 import com.donar.User
 import com.donar.UserAuthority
@@ -35,6 +36,35 @@ class AccountController extends CommonController{
         bindData(account, params)
 
         boolean created = accountService.save(account);
+        println("Created........"+created)
+
+        redirect(action: 'index')
+    }
+
+    def schedule(){
+        Account account = Account.get(params.int("id"))
+        List mobileLocationList = ["Mob1", "Mob2", "Mob3"]
+
+        List<AccountSchedule> accountScheduleList = AccountSchedule.findAllByAccount(account)
+        List appointData = accountService.makeAppointmentData(accountScheduleList);
+
+        [account: account, location: locationList, mobileLocationList: mobileLocationList, appointData: appointData as JSON, hasOwnJs: "account-schedule"]
+    }
+
+    def saveSchedule(){
+        println "Params..............."+params
+        Account account = Account.get(params.int("accountId"))
+
+        Date date = Date.parse("MM/dd/yyyy", params.date)
+
+        AccountSchedule accountSchedule = new AccountSchedule()
+        accountSchedule.account = account
+        accountSchedule.date = date
+        accountSchedule.location = params.location
+        accountSchedule.startTime = params.startTime
+        accountSchedule.endTime = params.endTime
+
+        boolean created = accountService.saveSchedule(accountSchedule);
         println("Created........"+created)
 
         redirect(action: 'index')

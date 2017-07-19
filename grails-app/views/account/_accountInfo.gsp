@@ -26,7 +26,7 @@
                             <input readonly type="text" class="form-control" value="${account.collection}">
                         </div>
                         <div class="form-group">
-                            <label><a href="#">Scheduling</a></label>
+                            <label><g:link controller="account" action="schedule" params="${[id: account.id]}">Scheduling</g:link></label>
                         </div>
                         <div>
                             <button class="btn btn-sm btn-primary pull-right m-t-n-xs" data-dismiss="modal"><strong>Close</strong></button>
