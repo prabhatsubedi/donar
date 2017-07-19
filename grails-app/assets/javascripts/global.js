@@ -88,3 +88,23 @@ function showPastDonation(id){
         }
     });
 }
+
+function saveCallFeedback(userId, queryId){
+    $('#donar-contact-info').modal('toggle');
+    var parameters = {'userId':userId, 'queryId':queryId}
+    jQuery.ajax({
+        type:'POST',
+        data: parameters,
+        url:saveCallFeedback_URL,
+        success:function (data, textStatus) {
+            $('#donation-info-div').html(data);
+
+        },
+        error:function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Error!")
+        },
+        complete:function (XMLHttpRequest, textStatus) {
+            //$('#error-message').hide();
+        }
+    });
+}

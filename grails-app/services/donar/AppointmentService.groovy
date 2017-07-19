@@ -1,5 +1,6 @@
 package donar
 
+import com.donar.CallFeedback
 import com.donar.User
 import com.donar.UserAppointment
 import grails.transaction.Transactional
@@ -86,6 +87,17 @@ class AppointmentService {
         }
 
         return appointData;
+    }
+
+    public boolean saveCallFeedback(CallFeedback callFeedback){
+        try{
+            callFeedback.save(failOnError: true)
+
+            return true
+        }catch (Exception ex){
+            ex.printStackTrace()
+            return false
+        }
     }
 
 }

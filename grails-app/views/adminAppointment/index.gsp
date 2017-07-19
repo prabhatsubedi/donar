@@ -12,6 +12,7 @@
     </style>
     <script>
         var pastDonation_URL = '<g:createLink controller="donarContact" action="pastDonation"/>'
+        var saveCallFeedback_URL = '<g:createLink controller="adminAppointment" action="saveCallFeedback"/>'
     </script>
 </head>
 
@@ -39,80 +40,14 @@
                         </div>
                     </div>
                     <div class="col-lg-7">
-                        <div class="col-sm-12" style="background: #ddd;">
-                            <h3>Donor Information</h3>
-                            <form id="donation-info" class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Name :</label>
-                                    <div class="col-lg-5">
-                                        <p class="form-control-static">Narayan</p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Address :</label>
-                                    <div class="col-lg-5">
-                                        <p class="form-control-static">123 street, New York</p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Phone Number :</label>
-                                    <div class="col-lg-5" style="margin-top: -8px;">
-                                        <p class="form-control-static">
-                                            <span style="margin-right: 20px">650-323-333</span>
-                                            <i onclick="pushCallDetail();" class="fa fa-phone-square fa-2x" aria-hidden="true"></i> &nbsp; &nbsp;
-                                            <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Email :</label>
-                                    <div class="col-lg-5" style="margin-top: -8px;">
-                                        <p class="form-control-static">
-                                            <span style="margin-right: 20px">email@example.com</span>
-                                            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Location Preference :</label>
-                                    <div class="col-lg-5">
-                                        <p class="form-control-static">
-                                            <span style="margin-right: 20px">Mountain View</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Preferred Method of Contact :</label>
-                                    <div class="col-lg-5">
-                                        <p class="form-control-static">
-                                            <span style="margin-right: 20px">Phone</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Donation History :</label>
-                                    <div class="col-lg-5">
-                                        <p class="form-control-static">
-                                            <a style="margin-right: 20px" onclick="showPastDonation(${1})" href="#">Click Here</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-5 control-label">Donor Index :</label>
-                                    <div class="col-lg-5">
-                                        <p class="form-control-static">
-                                            <span style="margin-right: 20px">90%</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </form>
+                        <div id="donation-info-div" class="col-sm-12" style="background: #ddd;">
+                            <g:render template="donorInformation" model="${[currentUser: currentUser]}"/>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div id="call-stat" class="row" style="display: none;background: #ddd;">
                             <div class="col-sm-12 b-r"><h3 class="m-t-none m-b">Call Statistics</h3>
-                                <g:form role="form" controller="adminAppointment" action="index">
+                                <g:form role="form" controller="adminAppointment" action="saveCallFeedback">
                                     <div class="form-group">
                                         <span>Call Duration : 4:30</span><br>
 
@@ -129,9 +64,12 @@
                                         <g:textArea class="form-control" name="additionalNote">
 
                                         </g:textArea>
+                                        <g:hiddenField name="userId" value="${currentUser.id}"/>
+                                        <g:hiddenField name="queryId" value="${currentQuery.id}"/>
+                                        <g:hiddenField name="queryIndex" value="${queryIndex}"/>
                                     </div>
                                     <div>
-                                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+                                        <button %{--onclick="saveCallFeedback('${currentUser.id}', '${currentQuery.id}')"--}% class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
                                             <strong>Submit</strong>
                                         </button>
                                     </div>

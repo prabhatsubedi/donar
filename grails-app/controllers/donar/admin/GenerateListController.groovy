@@ -76,7 +76,6 @@ class GenerateListController extends CommonController{
         int count = query.count
         query.count = count + 1
 
-
         boolean isCreated = generateListService.saveQueryTrack(query)
 
         println("isCreated ... "+isCreated)
