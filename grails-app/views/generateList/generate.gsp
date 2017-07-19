@@ -29,21 +29,25 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Gender</th>
+                            <th>Blood Type</th>
                             <th>Phone Number</th>
                             <th>Email</th>
                             <th>Average Donor Index</th>
                         </tr>
                         </thead>
                         <tbody id="blood-product-rbc">
-                            <g:each in="${donarList}" var="row" status="i">
-                                <tr>
-                                    <td>${i+1}</td>
-                                    <td>${row.user.fullName}</td>
-                                    <td>${row.user.phoneNumber}</td>
-                                    <td>${row.user.email}</td>
-                                    <td>${row.authority.authority}</td>
-                                </tr>
-                            </g:each>
+                        <g:each in="${donarList}" var="row" status="i">
+                            <tr>
+                                <td>${i+1}</td>
+                                <td>${row.fullName}</td>
+                                <td>${row.gender}</td>
+                                <td>${row.bloodType}</td>
+                                <td>${row.phoneNumber}</td>
+                                <td>${row.email}</td>
+                                <td>100</td>
+                            </tr>
+                        </g:each>
                         </tbody>
                     </table>
                 </div>

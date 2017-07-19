@@ -3,6 +3,7 @@ package donar.admin
 import com.donar.Authority
 import com.donar.Query
 import com.donar.QueryTrack
+import com.donar.User
 import com.donar.UserAuthority
 import com.donar.UserAuthorityEnum
 import donar.CommonController
@@ -16,7 +17,7 @@ class GenerateListController extends CommonController{
     static allowedMethods = [login: "POST", update: "PUT", delete: "DELETE"]
 
     List ageList = ['<20', '21-30', '31-40', '41-50', '51-60', '61-70', '71+']
-    List genderList = ["M", "F"]
+    List genderList = ["Male", "Female"]
     List ethnicityList = ["American Indian or Alaska Native", "Asian, Black or African American", "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander", "White", "Decline to State", "Other"]
     List bloodTypeList = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"]
     List cmvList = ['Pos', 'Neg']
@@ -42,11 +43,15 @@ class GenerateListController extends CommonController{
 
     def search(){
         println "Params........"+params
-        List<UserAuthority> donarList = UserAuthority.findAllByAuthority(Authority.findByAuthority(UserAuthorityEnum.ROLE_DONAR.toString()))
-        println "Donar List .."+donarList.size();
-
         String queryJSON = generateListService.createQueryJson(params)
+        Map jsonMap = JSON.parse(queryJSON)
+
         println "Query JSON..."+queryJSON
+
+        //List<UserAuthority> donarList = UserAuthority.findAllByAuthority(Authority.findByAuthority(UserAuthorityEnum.ROLE_DONAR.toString()))
+        List<User> donarList = generateListService.searchDonorWithCriteria(jsonMap)
+
+        println "Donar List .."+donarList.size();
 
         [location: locationList, donarList: donarList, queryJSON: queryJSON, hasOwnJs: "search"]
     }
@@ -73,15 +78,18 @@ class GenerateListController extends CommonController{
 
 
         boolean isCreated = generateListService.saveQueryTrack(query)
+
         println("isCreated ... "+isCreated)
 
-        List<UserAuthority> donarList = UserAuthority.findAllByAuthority(Authority.findByAuthority(UserAuthorityEnum.ROLE_DONAR.toString()))
+        Map jsonMap = JSON.parse(query.getQuery())
+
+        List<User> donarList = generateListService.searchDonorWithCriteria(jsonMap)
         println "Donar List .."+donarList.size();
 
-        String queryJSON = generateListService.createQueryJson(params)
-        println "Query JSON..."+queryJSON
+       /* String queryJSON = generateListService.createQueryJson(params)
+        println "Query JSON..."+queryJSON*/
 
-        [location: locationList, donarList: donarList, queryJSON: queryJSON, hasOwnJs: "search"]
+        [location: locationList, donarList: donarList, /*queryJSON: queryJSON, */hasOwnJs: "search"]
     }
 
 

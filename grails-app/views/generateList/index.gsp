@@ -4,7 +4,7 @@
 <head>
     <meta name="layout" content="main_admin"/>
 
-    <title>Circulate | Generate List</title>
+    <title>Circulate | List Generate</title>
 </head>
 
 <body>
@@ -70,6 +70,9 @@
                             <th>Created</th>
                             <th>Delete</th>
                             <th>Generate</th>
+                            <th>Active</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
                             <th>Run Count</th>
                         </tr>
                         </thead>
@@ -81,6 +84,9 @@
                                 <td>${row.dateCreated?.format("MM/dd/yyyy")}</td>
                                 <td><g:link class="btn btn-sm btn-danger">Delete</g:link></td>
                                 <td><g:link class="btn btn-sm btn-primary" action="generate" params="${[id: row.id]}">Generate</g:link></td>
+                                <td>T</td>
+                                <td></td>
+                                <td></td>
                                 <td>${row.count}</td>
                             </tr>
                         </g:each>

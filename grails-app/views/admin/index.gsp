@@ -47,7 +47,7 @@
                 <div class="m-b-md">
                     <i class="fa fa-list-ol fa-4x"></i>
                     <h1 class="font-bold">
-                        Generate Lists
+                        List Generate
                     </h1>
                 </div>
             </div>

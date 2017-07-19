@@ -71,7 +71,7 @@
                     <g:link controller="adminAppointment" action="index"><i class="fa fa-clock-o"></i> <span class="nav-label">Appointments</span></g:link>
                 </li>
                 <li class="${(controllerName == 'generateList')?'active':''}">
-                    <g:link controller="generateList" action="index"><i class="fa fa-list-ol"></i> <span class="nav-label">Generate List View</span></g:link>
+                    <g:link controller="generateList" action="index"><i class="fa fa-list-ol"></i> <span class="nav-label">List Generate</span></g:link>
                 </li>
                 <li class="${(controllerName == 'inventory')?'active':''}">
                     <g:link controller="inventory" action="index"><i class="fa fa-bar-chart"></i> <span class="nav-label">Inventory</span></g:link>
