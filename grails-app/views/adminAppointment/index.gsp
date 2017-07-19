@@ -34,7 +34,7 @@
                         <div class="form-group"><h3>Contact List</h3>
                             <g:each in="${queryList}" var="row">
                                 <div>
-                                    <button style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row.name}</button>
+                                    <g:link controller="adminAppointment" action="index" params="${[queryId : row.id]}" style="width: 150px; text-align: left" class="btn btn-sm btn-${(currentQuery.id == row.id)?'primary':'default'}">${row.name}</g:link>
                                 </div>
                             </g:each>
                         </div>
@@ -64,9 +64,11 @@
                                         <g:textArea class="form-control" name="additionalNote">
 
                                         </g:textArea>
-                                        <g:hiddenField name="userId" value="${currentUser.id}"/>
-                                        <g:hiddenField name="queryId" value="${currentQuery.id}"/>
-                                        <g:hiddenField name="queryIndex" value="${queryIndex}"/>
+                                        <g:if test="${currentUser}">
+                                            <g:hiddenField name="userId" value="${currentUser.id}"/>
+                                            <g:hiddenField name="queryId" value="${currentQuery.id}"/>
+                                            <g:hiddenField name="queryIndex" value="${queryIndex}"/>
+                                        </g:if>
                                     </div>
                                     <div>
                                         <button %{--onclick="saveCallFeedback('${currentUser.id}', '${currentQuery.id}')"--}% class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
