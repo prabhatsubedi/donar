@@ -75,7 +75,7 @@ class GenerateListController extends CommonController{
 
         if(eDate){
             Date endDate = Date.parse("MM/dd/yyyy", eDate)
-            query.endDate(endDate)
+            query.setEndDate(endDate)
         }
         
         boolean isCreated = generateListService.save(query)
