@@ -7,13 +7,13 @@
                         <div class="col-sm-12"><h3 class="m-t-none m-b">Save List As</h3>
                             <div class="form-group"><label class="col-lg-3 control-label">Query Name</label>
                                 <div class="col-lg-9">
-                                    <g:textField name="name" class="form-control" />
+                                    <g:textField name="name" required="required" class="form-control" />
                                     <g:hiddenField name="query" value="${queryJSON}"/>
                                 </div>
                             </div>
                             <div class="form-group"><label class="col-lg-3 control-label">Frequency</label>
                                 <div class="col-lg-9">
-                                    <g:select from="${frequencyList}" name="frequency" noSelection="['':'All']" class="form-control" />
+                                    <g:select from="${frequencyList}" required="required" name="frequency" noSelection="['':'Select']" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group calendar-dob">
