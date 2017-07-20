@@ -8,6 +8,7 @@ import com.donar.UserAuthority
 import com.donar.UserAuthorityEnum
 import donar.CommonController
 import donar.GenerateListService
+import donar.ReportingService
 import grails.converters.JSON
 
 /**
@@ -26,8 +27,11 @@ class GenerateListController extends CommonController{
     List preferredContactMethodList = ['Phone', 'Email', 'Text', 'Message']
     List preferredDonationLocationList = ['Mountain View', 'Palo Alto', 'Menlo Park', 'Mobile 1', 'Mobile 2', 'Mobile 3']
     List eligibleForList = ['Platelets', 'Plasma', 'Whole Blood', 'DRBC']
+    //Mon, Tue, Wed, etc..." for each week day, "Mon-Fri," "Mon-Sat", and "Everyday.
+    List frequencyList = ['Mon', 'Tue', 'Wed', 'Thu', "Fry", "Sat", 'Mon-Fri', 'Mon-Sat', 'Everyday']
 
     GenerateListService generateListService
+    ReportingService reportingService
 
     def index(){
         List<Query> queryList = Query.list()
@@ -53,15 +57,26 @@ class GenerateListController extends CommonController{
 
         println "Donar List .."+donarList.size();
 
-        [location: locationList, donarList: donarList, queryJSON: queryJSON, hasOwnJs: "search"]
+        [frequencyList: frequencyList, donarList: donarList, queryJSON: queryJSON, hasOwnJs: "search"]
     }
 
     def save(){
         println "Save Params........"+params
 
         Query query = new Query();
-
+        String sDate = params.remove("startDate")
+        String eDate = params.remove("endDate")
         bindData(query, params)
+
+        if(sDate){
+            Date startDate = Date.parse("MM/dd/yyyy", sDate)
+            query.setStartDate(startDate)
+        }
+
+        if(eDate){
+            Date endDate = Date.parse("MM/dd/yyyy", eDate)
+            query.endDate(endDate)
+        }
         
         boolean isCreated = generateListService.save(query)
         println("isCreated ... "+isCreated)
@@ -88,8 +103,30 @@ class GenerateListController extends CommonController{
        /* String queryJSON = generateListService.createQueryJson(params)
         println "Query JSON..."+queryJSON*/
 
-        [location: locationList, donarList: donarList, /*queryJSON: queryJSON, */hasOwnJs: "search"]
+        [location: locationList, queryId: query.id, donarList: donarList, /*queryJSON: queryJSON, */hasOwnJs: "search"]
     }
 
+    def export(){
+        Query query = Query.get(params.int("id"))
+
+        Map jsonMap = JSON.parse(query.getQuery())
+
+        List<User> donarList = generateListService.searchDonorWithCriteria(jsonMap)
+
+        String reportName = "DONOR_LIST".toUpperCase()
+        File fileContent = reportingService.generateDonorListCSVFile(reportName, donarList)
+
+        byte[] fileBytes = reportingService.fileToByteArray(fileContent)
+        ByteArrayInputStream srcStream = new ByteArrayInputStream(fileBytes);
+
+        Date date = new Date()
+
+        def (inputStream, header) = [srcStream,["Content-disposition": "attachment; filename=\"" + "${reportName}_${date.format('yyyy_MM_dd')}" + ".csv\""]]
+
+        def contentDescription = header['Content-disposition']
+        response.setHeader('Content-disposition',contentDescription);
+        response.outputStream << inputStream
+        return
+    }
 
 }

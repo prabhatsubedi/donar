@@ -11,6 +11,25 @@
                                     <g:hiddenField name="query" value="${queryJSON}"/>
                                 </div>
                             </div>
+                            <div class="form-group"><label class="col-lg-3 control-label">Frequency</label>
+                                <div class="col-lg-9">
+                                    <g:select from="${frequencyList}" name="frequency" noSelection="['':'All']" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group calendar-dob">
+                                <label class="col-lg-3 control-label">Start Date</label>
+                                <div class="input-group date col-lg-9" style="padding: 0 15px;">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control" name="startDate">
+                                </div>
+                            </div>
+                            <div class="form-group calendar-dob">
+                                <label class="col-lg-3 control-label">End Date</label>
+                                <div class="input-group date col-lg-9" style="padding: 0 15px;">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control" name="endDate">
+                                </div>
+                            </div>
                             <div>
                                 <button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">
                                     <strong>Cancel</strong>

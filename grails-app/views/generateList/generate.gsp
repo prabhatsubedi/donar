@@ -13,6 +13,12 @@
 <body>
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
+        <div class="pull-right" style="padding-bottom: 10px;">
+            <g:link controller="generateList" action="export" params="${[id: queryId]}" class="btn btn-primary">
+                <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                Export
+            </g:link>
+        </div>
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Generated Contact List</h5>
