@@ -24,10 +24,11 @@
                                 <input name="collection" type="number" required class="form-control"/>
                             </div>
                             <div>
-                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" data-dismiss="modal">
-                                    <strong>Close</strong>
+                                <g:submitButton style="margin-left: 10px;" class="btn btn-sm btn-primary pull-right" name="save" value="Save"/>
+                                <button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">
+                                    Close
                                 </button>
-                                <g:submitButton class="btn btn-primary" name="save" value="Save"/>
+
                             </div>
                         </div>
                     </g:form>

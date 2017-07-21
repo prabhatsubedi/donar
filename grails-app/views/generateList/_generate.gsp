@@ -56,10 +56,10 @@
                                 </div>
                             </div>
                             <div>
+                                <g:submitButton class="btn btn-sm btn-primary pull-right" style="margin-left: 10px;" name="save" value="Generate"/>
                                 <button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">
-                                    <strong>Close</strong>
+                                    Cancel
                                 </button>
-                                <g:submitButton class="btn btn-sm btn-primary pull-right" style="margin-right: 15px;" name="save" value="Generate"/>
                             </div>
                         </div>
                     </g:form>

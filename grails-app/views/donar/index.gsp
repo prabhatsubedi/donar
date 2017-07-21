@@ -65,24 +65,24 @@
                 </div>
             </div>
         </g:link>
-        <g:link controller="reward" action="index">
+        <g:link controller="healthHistory" action="index">
             <div class="widget blue-bg p-lg text-center">
                 <div class="m-b-md">
-                    <i class="fa fa-gift fa-4x"></i>
+                    <i class="fa fa-medkit fa-4x"></i>
                     <h1 class="font-bold">
-                        Rewards
+                        Wellness History
                     </h1>
                 </div>
             </div>
         </g:link>
     </div>
     <div class="col-lg-4">
-        <g:link controller="healthHistory" action="index">
+        <g:link controller="reward" action="index">
             <div class="widget red-bg p-lg text-center">
                 <div class="m-b-md">
-                    <i class="fa fa-medkit fa-4x"></i>
+                    <i class="fa fa-gift fa-4x"></i>
                     <h1 class="font-bold">
-                        Wellness History
+                        Rewards
                     </h1>
                 </div>
             </div>

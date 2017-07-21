@@ -40,12 +40,12 @@
                         </div>
                     </div>
                     <div class="col-lg-7">
-                        <div id="donation-info-div" class="col-sm-12" style="background: #ddd;">
+                        <div id="donation-info-div" class="col-sm-12">
                             <g:render template="donorInformation" model="${[currentUser: currentUser]}"/>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div id="call-stat" class="row" style="display: none;background: #ddd;">
+                        <div id="call-stat" class="row" style="display: none;">
                             <div class="col-sm-12 b-r"><h3 class="m-t-none m-b">Call Statistics</h3>
                                 <g:form role="form" controller="adminAppointment" action="saveCallFeedback">
                                     <div class="form-group">

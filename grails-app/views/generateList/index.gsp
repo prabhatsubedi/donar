@@ -103,13 +103,13 @@
                             <th>#</th>
                             <th>Query</th>
                             <th>Created</th>
-                            <th>Delete</th>
-                            <th>Generate</th>
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Frequency</th>
                             <th>Active</th>
                             <th>Run Count</th>
+                            <th>Generate</th>
+                            <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody id="blood-product-rbc">
@@ -118,8 +118,6 @@
                                 <td>${i+1}</td>
                                 <td>${row.name}</td>
                                 <td>${row.dateCreated?.format("MM/dd/yyyy")}</td>
-                                <td><g:link class="btn btn-sm btn-danger">Delete</g:link></td>
-                                <td><g:link class="btn btn-sm btn-primary" action="generate" params="${[id: row.id]}">Generate</g:link></td>
                                 <td>
                                     <g:if test="${row.startDate}">
                                         ${row.startDate?.format("MM/dd/yyyy")}
@@ -152,6 +150,8 @@
                                     </g:else>
                                 </td>
                                 <td>${row.count}</td>
+                                <td><g:link class="btn btn-sm btn-primary" action="generate" params="${[id: row.id]}">Generate</g:link></td>
+                                <td><g:link class="btn btn-sm btn-danger">Delete</g:link></td>
                             </tr>
                         </g:each>
                         </tbody>
