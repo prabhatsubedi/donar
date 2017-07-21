@@ -27,19 +27,19 @@ class GenerateListService {
     protected String createQueryJson(params){
         String query = "";
         Map queryMap = new HashMap();
-        if(params.age){
+        /*if(params.age){
             queryMap.age = params.age
         }
         if(params.ethnicity){
             queryMap.ethnicity = params.ethnicity
-        }
+        }*/
         if(params.gender){
             queryMap.gender = params.gender
         }
         if(params.bloodType){
             queryMap.bloodType = params.bloodType
         }
-        if(params.cmv){
+        /*if(params.cmv){
             queryMap.cmv = params.cmv
         }
         if(params.donorIndex){
@@ -56,7 +56,7 @@ class GenerateListService {
         }
         if(params.eligibleFor){
             queryMap.eligibleFor = params.eligibleFor
-        }
+        }*/
 
         query = (queryMap as JSON)
 
