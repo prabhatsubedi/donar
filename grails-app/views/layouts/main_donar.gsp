@@ -67,7 +67,7 @@
                 <li class="${(controllerName == 'healthHistory')?'active':''}">
                     <g:link controller="healthHistory" action="index"><i class="fa fa-medkit"></i> <span class="nav-label">Health History</span></g:link>
                 </li>
-                <li class="${(controllerName == 'appointment' && actionName == 'index')?'active':''}">
+                <li class="${(controllerName == 'appointment' && actionName != 'optimalDonation')?'active':''}">
                     <g:link controller="appointment" action="index"><i class="fa fa-calendar-o"></i> <span class="nav-label">Appointments</span></g:link>
                 </li>
                 <li class="${(controllerName == 'appointment' && actionName == 'optimalDonation')?'active':''}">

@@ -22,7 +22,7 @@ class GenerateListController extends CommonController{
     List ethnicityList = ["American Indian or Alaska Native", "Asian, Black or African American", "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander", "White", "Decline to State", "Other"]
     List bloodTypeList = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"]
     List cmvList = ['Pos', 'Neg']
-    List donorIndexList = 1..100
+    List donorIndexList = ['1-10','11-20','21-30','31-40','41-50','51-60','61-70','71-80','81-90','91-100']
     List preferredDonationTypeList = ['Platelets', 'Plasma', 'Whole Blood', 'DRBC']
     List preferredContactMethodList = ['Phone', 'Email', 'Text', 'Message']
     List preferredDonationLocationList = ['Mountain View', 'Palo Alto', 'Menlo Park', 'Mobile 1', 'Mobile 2', 'Mobile 3']
@@ -127,6 +127,17 @@ class GenerateListController extends CommonController{
         response.setHeader('Content-disposition',contentDescription);
         response.outputStream << inputStream
         return
+    }
+
+    def changeQueryStatus(){
+        Query query = Query.get(params.int("queryId"));
+        Boolean status = params.boolean("status");
+        query.setIsActive(status)
+
+        boolean updated = generateListService.save(query)
+        println("Updated........"+updated)
+
+        redirect(action: 'index')
     }
 
 }

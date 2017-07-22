@@ -1,5 +1,8 @@
 package donar
 
+import com.donar.Account
+import com.donar.AccountSchedule
+import com.donar.Appointment
 import com.donar.User
 import com.donar.UserAppointment
 import grails.converters.JSON
@@ -47,11 +50,12 @@ class AppointmentController {
         String selectedLocation = params.location
         String appointmentDate = params.appointmentDate
         User user = userService.getUser(session.user.id);
-
+        Date date = Date.parse("MM-dd-yyyy", appointmentDate)
         List filteredDonationList = donationList.findAll {it.location == params.location}
+        List<AccountSchedule> accountScheduleList = AccountSchedule.list().findAll {it.location == params.location && it.date == date}
 
-        [user: user, location: locationList, selectedLocation: selectedLocation, appointmentDate: appointmentDate,
-         data: filteredDonationList, donationType: donationType]
+        [user: user, location: locationList, accountScheduleList: accountScheduleList, selectedLocation: selectedLocation, appointmentDate: appointmentDate,
+         data: accountScheduleList, donationType: donationType]
     }
 
     def create(){
@@ -78,22 +82,30 @@ class AppointmentController {
 
     def saveAppointment(){
         int index = params.int("index")
-        Map appointment = donationList.get(index)
-        println "Appointment Detail...."+appointment
+        Date date = Date.parse("MM-dd-yyyy", params.appointmentDate)
+        AccountSchedule accountSchedule = AccountSchedule.get(params.int("accountScheduleId"))
+
+        //Map appointment = donationList.get(index)
+        //println "Appointment Detail...."+appointment
 
         User user = userService.getUser(session.user.id);
 
         UserAppointment userAppointment = new UserAppointment();
         userAppointment.setUser(user)
-        userAppointment.setStartTime(appointment.st)
-        userAppointment.setEndTime(appointment.et)
-        userAppointment.setLocation(appointment.location)
+        userAppointment.setStartTime(accountSchedule.startTime)
+        userAppointment.setEndTime(accountSchedule.endTime)
+        userAppointment.setLocation(accountSchedule.location)
         userAppointment.setDonationType(params.donationType)
-
-        Date date = Date.parse("MM-dd-yyyy", params.appointmentDate)
         userAppointment.setDate(date)
 
         appointmentService.createUserAppoinment(userAppointment)
+
+        Appointment appointment = new Appointment();
+        appointment.user = user;
+        appointment.accountSchedule = accountSchedule;
+        appointment.donationType = params.donationType;
+
+        appointmentService.createAppoinment(appointment)
 
         redirect(action: 'index')
     }

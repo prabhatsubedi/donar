@@ -44,6 +44,7 @@ class AccountController extends CommonController{
     def schedule(){
         Account account = Account.get(params.int("id"))
         List mobileLocationList = ["Mob1", "Mob2", "Mob3"]
+        mobileLocationList.addAll(locationList)
 
         List<AccountSchedule> accountScheduleList = AccountSchedule.findAllByAccount(account)
         List appointData = accountService.makeAppointmentData(accountScheduleList);

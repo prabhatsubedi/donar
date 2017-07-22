@@ -1,5 +1,6 @@
 package donar
 
+import com.donar.Appointment
 import com.donar.CallFeedback
 import com.donar.User
 import com.donar.UserAppointment
@@ -11,6 +12,18 @@ class AppointmentService {
     protected boolean createUserAppoinment(UserAppointment userAppointment) {
         try{
             userAppointment.save(failOnError: true)
+
+            return true
+        }catch (Exception ex){
+            ex.printStackTrace()
+            return false
+        }
+
+    }
+
+    protected boolean createAppoinment(Appointment appointment) {
+        try{
+            appointment.save(failOnError: true)
 
             return true
         }catch (Exception ex){

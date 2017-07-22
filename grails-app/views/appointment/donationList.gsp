@@ -50,6 +50,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
+                        <th>Organization</th>
                         <th>Start Time</th>
                         <th>End Time</th>
                         <th>Location</th>
@@ -60,6 +61,7 @@
                     <tbody>
                     <g:each in="${data}" var="row" status="i">
                         <tr>
+                            <td>${row.account.organization}</td>
                             <td>${row.startTime}</td>
                             <td>${row.endTime}</td>
                             <td>${row.location}</td>
@@ -73,7 +75,7 @@
                             </td>
                             <td>
                                 <div style="float: left">
-                                    <button onclick="selectDonationTime('<g:createLink controller="appointment" action="saveAppointment"/>', ${row.id}, '${appointmentDate}')" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
+                                    <button onclick="selectDonationTime('<g:createLink controller="appointment" action="saveAppointment"/>', ${row.id}, '${appointmentDate}', '${row.id}')" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit">
                                         <strong>Go</strong>
                                     </button>
                                 </div>

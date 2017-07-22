@@ -18,7 +18,7 @@
             <div class="col-lg-5" style="margin-top: -8px;">
                 <p class="form-control-static">
                     <span style="margin-right: 20px">${currentUser.phoneNumber}</span>
-                    <i onclick="pushCallDetail();" class="fa fa-phone-square fa-2x" aria-hidden="true"></i> &nbsp; &nbsp;
+                    <i onclick="pushCallDetail('${currentUser.id}');" class="fa fa-phone-square fa-2x" aria-hidden="true"></i> &nbsp; &nbsp;
                     <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
                 </p>
 

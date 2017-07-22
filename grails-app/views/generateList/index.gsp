@@ -5,6 +5,9 @@
     <meta name="layout" content="main_admin"/>
 
     <title>Circulate | List Generator</title>
+    <script>
+        var statusChangeUrl = '<g:createLink controller="generateList" action="changeQueryStatus"/>';
+    </script>
 </head>
 
 <body>
@@ -59,13 +62,13 @@
                                 <td>${row.query.frequency}</td>
                                 <td>
                                     <g:if test="${row.query.isActive}">
-                                        <div class="icheckbox_square-green checked" style="position: relative;">
+                                        <div onclick="changeQueryStatus('${row.query.id}', false)" class="icheckbox_square-green checked" style="position: relative;">
                                             <input value="" checked="" style="position: absolute; opacity: 0;" type="checkbox">
                                             <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins>
                                         </div>
                                     </g:if>
                                     <g:else>
-                                        <div class="icheckbox_square-green disabled" style="position: relative;">
+                                        <div onclick="changeQueryStatus('${row.query.id}', true)" class="icheckbox_square-green" style="position: relative;">
                                             <input value="" disabled="" style="position: absolute; opacity: 0;" type="checkbox">
                                             <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins>
                                         </div>
@@ -137,13 +140,13 @@
                                 <td>${row.frequency}</td>
                                 <td>
                                     <g:if test="${row.isActive}">
-                                        <div class="icheckbox_square-green checked" style="position: relative;">
+                                        <div onclick="changeQueryStatus('${row.id}', false)" class="icheckbox_square-green checked" style="position: relative;">
                                             <input value="" checked="" style="position: absolute; opacity: 0;" type="checkbox">
                                             <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins>
                                         </div>
                                     </g:if>
                                     <g:else>
-                                        <div class="icheckbox_square-green disabled" style="position: relative;">
+                                        <div onclick="changeQueryStatus('${row.id}', true)"  class="icheckbox_square-green" style="position: relative;">
                                             <input value="" disabled="" style="position: absolute; opacity: 0;" type="checkbox">
                                             <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins>
                                         </div>

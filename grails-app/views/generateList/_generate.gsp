@@ -55,6 +55,11 @@
                                     <g:select from="${eligibleForList}" name="eligibleFor" noSelection="['':'All']" class="form-control" />
                                 </div>
                             </div>
+                            <div class="form-group"><label class="col-lg-5 control-label">HLAr</label>
+                                <div class="col-lg-7">
+                                    <g:select from="${[]}" name="hla" noSelection="['':'All']" class="form-control" />
+                                </div>
+                            </div>
                             <div>
                                 <g:submitButton class="btn btn-sm btn-primary pull-right" style="margin-left: 10px;" name="save" value="Generate"/>
                                 <button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">

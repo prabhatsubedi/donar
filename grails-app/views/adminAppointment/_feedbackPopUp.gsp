@@ -3,26 +3,47 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="row">
-                    <g:form class="form-horizontal" controller="adminAppointment" action="index">
+                    <g:form class="form-horizontal" controller="adminAppointment" action="saveAppointment">
                         <div class="col-sm-12"><h3 class="m-t-none m-b">Schedule</h3>
+                            <g:hiddenField name="donarId"/>
+                            <g:hiddenField name="query-id"/>
+                            <g:hiddenField name="query-index"/>
                             <div class="form-group calendar-dob">
-                                <label class="col-lg-2 control-label">Schedule</label>
-                                <div class="col-lg-10 input-group date" style="padding-left: 15px;padding-right: 15px;">
+                                <label class="col-lg-3 control-label">Schedule</label>
+                                <div class="col-lg-9 input-group date" style="padding-left: 15px;padding-right: 15px;">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control" value="${new Date().format('MM/dd/yyyy')}" name="schedule">
+                                    <input type="text" class="form-control" value="${new Date().format('MM/dd/yyyy')}" name="appointmentDate">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Location</label>
-                                <div class="col-lg-10">
-                                    <g:select from="${locationList}" name="name" class="form-control" />
+                                <label class="col-lg-3 control-label">Location</label>
+                                <div class="col-lg-9">
+                                    <g:select from="${locationList}" noSelection="['':'Select']" name="location" class="form-control" required="required"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Donation Type</label>
+                                <div class="col-lg-9">
+                                    <g:select from="${donationType}" noSelection="['':'Select']" name="donationType" class="form-control" required="required"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Start Time</label>
+                                <div class="col-lg-9">
+                                    <input placeholder="14:30" required="required" name="startTime" required class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">End Time</label>
+                                <div class="col-lg-9">
+                                    <input placeholder="16:30" required="required" name="endTime" required class="form-control"/>
                                 </div>
                             </div>
                             <div>
-                                <button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">
+                                %{--<button class="btn btn-sm btn-primary pull-right" data-dismiss="modal">
                                     <strong>Apply</strong>
-                                </button>
-                                %{--<g:submitButton class="btn btn-sm btn-primary pull-right" style="margin-right: 15px;" name="save" value="Apply"/>--}%
+                                </button>--}%
+                                <g:submitButton class="btn btn-sm btn-primary pull-right" style="margin-right: 15px;" name="save" value="Save"/>
                             </div>
                         </div>
                     </g:form>

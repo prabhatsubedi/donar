@@ -50,16 +50,19 @@ function validateForm(){
     return true;
 }
 
-function selectDonationTime(url, index, appointmentDate){
+function selectDonationTime(url, index, appointmentDate, id){
     var donationType = $("#donation-type-"+index).val();
     if(donationType == ""){
         alert("Please Select Donation Type!");
         return
     }
-    location.href = url+"?index="+index+"&appointmentDate="+appointmentDate+"&donationType="+donationType
+    location.href = url+"?index="+index+"&appointmentDate="+appointmentDate+"&donationType="+donationType+"&accountScheduleId="+id
 }
 
-function pushCallDetail(){
+function pushCallDetail(userId){
+    $('#donarId').val(userId)
+    $('#query-id').val( $('#queryId').val())
+    $('#query-index').val( $('#queryIndex').val())
     $('#call-stat').show()
 }
 
@@ -107,4 +110,8 @@ function saveCallFeedback(userId, queryId){
             //$('#error-message').hide();
         }
     });
+}
+
+function changeQueryStatus(queryId, status){
+    location.href = statusChangeUrl+"?queryId="+queryId+"&status="+status
 }
