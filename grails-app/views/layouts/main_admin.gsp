@@ -33,7 +33,7 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                        <asset:image alt="image" class="img-circle" src="profile_small.jpg" />
+                        <asset:image width="50px" height="50px" alt="image" class="img-circle" src="${session.user.imageUrl?:'profile_small.jpg'}" />
                     </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">

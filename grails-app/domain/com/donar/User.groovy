@@ -27,6 +27,7 @@ class User {
     String country
     String bloodType
     String gender
+    String imageUrl
 
     Timestamp dateCreated
     Timestamp lastUpdated
@@ -44,6 +45,7 @@ class User {
         zipCode nullable: true, blank: true
         country nullable: true, blank: false
         bloodType nullable: true, blank: false
+        imageUrl nullable: true, blank: true
     }
 
     static mapping = {
