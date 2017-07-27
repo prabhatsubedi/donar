@@ -53,6 +53,8 @@
                                 <div class="form-group"><h3>Fixed Sites</h3>
                                     <g:hiddenField name="appointmentDate"/>
                                     <g:hiddenField name="bloodType"/>
+                                    <g:hiddenField name="donated"/>
+                                    <g:hiddenField name="remaining"/>
                                     <g:each in="${location}" var="row">
                                         <div>
                                             <button onclick="viewByDayAndPlace('${row}')" style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>

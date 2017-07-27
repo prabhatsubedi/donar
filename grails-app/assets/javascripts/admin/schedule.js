@@ -45,6 +45,8 @@ $(document).ready(function() {
             //alert(event.type)
             $('#appointmentDate').val(event.start.format("MM/DD/YYYY"));
             $('#bloodType').val(event.type)
+            $('#donated').val(event.value[0])
+            $('#remaining').val(event.value[1])
             $('#modal-form').modal()
         },
         events: event,
@@ -72,7 +74,9 @@ $(document).ready(function() {
 function viewByDayAndPlace(loc){
     var date = $("#appointmentDate").val();
     var bloodType = $("#bloodType").val();
-    location.href = byDayPlace_URL+"?date="+date+"&location="+loc+"&bloodType="+bloodType
+    var donated = $("#donated").val();
+    var remaining = $("#remaining").val();
+    location.href = byDayPlace_URL+"?date="+date+"&location="+loc+"&bloodType="+bloodType+"&donated="+donated+"&remaining="+remaining
     /*var parameters = {'date':date, 'location': location}
     jQuery.ajax({
         type:'POST',
