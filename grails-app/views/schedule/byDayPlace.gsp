@@ -14,7 +14,7 @@
     <!-- Morris -->
     <asset:stylesheet src="animate.css"/>
     <asset:stylesheet src="style"/>
-    <style>
+    %{--<style>
     #calendar .fc-event{
         background-color: #fff !important;
         border-color: #fff !important;
@@ -22,7 +22,7 @@
         text-align: center;
     }
 
-    </style>
+    </style>--}%
     <script>
         var appointData = ${raw(appointData as String)}
         var appointmentDate = '${appointmentDate}'
