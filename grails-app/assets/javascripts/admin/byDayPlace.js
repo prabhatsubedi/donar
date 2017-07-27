@@ -11,7 +11,7 @@ $(document).ready(function() {
     for (i = 0; i < appointData.length; i++) {
         var map = new Object();
         map['id'] = appointData[i].id
-        map['title'] = appointData[i].title
+        map['title'] = appointData[i].donor
         map['start'] = new Date(appointData[i].start[0], appointData[i].start[1], appointData[i].start[2], appointData[i].start[3], appointData[i].start[4]),
         map['end'] = new Date(appointData[i].end[0], appointData[i].end[1], appointData[i].end[2], appointData[i].end[3], appointData[i].end[4])
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
         },
         eventClick: function (event) {
-            var parameters = {'id':event.id}
+            /*var parameters = {'id':event.id}
             jQuery.ajax({
                 type:'POST',
                 data: parameters,
@@ -63,7 +63,7 @@ $(document).ready(function() {
                 complete:function (XMLHttpRequest, textStatus) {
                     //$('#error-message').hide();
                 }
-            });
+            });*/
 
 
         },

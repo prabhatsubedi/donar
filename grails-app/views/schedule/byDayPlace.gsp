@@ -27,7 +27,8 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5> ${location}'s Schedules</h5>
+                <h5> ${location}'s Schedules</h5><br/>
+                <h4 style="color: #1ab394;">Blood Type: ${bloodType}</h4>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>

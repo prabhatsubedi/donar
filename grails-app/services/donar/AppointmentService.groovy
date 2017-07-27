@@ -94,9 +94,63 @@ class AppointmentService {
             int endHour = Integer.parseInt(endTime.split(":")[0])
             int endMinute = Integer.parseInt(endTime.split(":")[1])
 
-            Map appointMap = ['id': it.id, 'title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
+            Map appointMap = ['id': it.id,'donor': it.user.fullName, 'title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
 
             appointData.add(appointMap)
+        }
+
+        return appointData;
+    }
+
+    public List makeAdminScheduleData(List<UserAppointment> userAppointmentList ){
+        userAppointmentList = UserAppointment.createCriteria().list() {
+            projections {
+                distinct("date")
+            }
+        }
+        userAppointmentList = userAppointmentList.sort()
+        List<UserAppointment> list = []
+        userAppointmentList.each{
+            list.add(UserAppointment.findByDate(it))
+        }
+        List appointData = []
+        //Map appointMap = ['plt': [20, 5], 'wb': [40, 30], "drbc": [5, 10]]
+
+        int c = 1
+        Map bloodTypeMap = ['PLT': [20, 5], 'WB': [40, 30], "DRBC": [5, 10]]
+        list.each{
+
+            println "Date..."+it.date
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(it.date)
+
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH) + 1; // Note: zero based!
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+
+            String startTime = it.startTime
+            String endTime = it.endTime
+
+            int startHour = Integer.parseInt(startTime.split(":")[0])
+            int startMinute = Integer.parseInt(startTime.split(":")[1])
+
+            int endHour = Integer.parseInt(endTime.split(":")[0])
+            int endMinute = Integer.parseInt(endTime.split(":")[1])
+
+            //Map appointMap = ['id': it.id, 'plt': [20, 5], 'wb': [40, 30], "drbc": [5, 10]]
+            Map appointMap
+
+            bloodTypeMap.each{row->
+                List v = [row.value[0] - c, row.value[1] + c]
+                appointMap = ['id': it.id,'type': row.key, "value": row.value, 'title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
+                if(c != 1){
+                    appointMap = ['id': it.id,'type': row.key, "value": v, 'title': it.location, 'start': [year, month -1, day, startHour, startMinute], "end": [year, month -1, day, endHour, endMinute]]
+                }
+
+                appointData.add(appointMap)
+            }
+            c++
+
         }
 
         return appointData;

@@ -14,6 +14,15 @@
     <!-- Morris -->
     <asset:stylesheet src="animate.css"/>
     <asset:stylesheet src="style"/>
+    <style>
+        #calendar .fc-event{
+            background-color: #fff !important;
+            border-color: #fff !important;
+            /*padding: 0px;*/
+            text-align: center;
+        }
+
+    </style>
     <script>
         var appointData = ${raw(appointData as String)}
         var byDayPlace_URL = '<g:createLink controller="schedule" action="byDayPlace"/>'
@@ -43,6 +52,7 @@
                             <div class="modal-body">
                                 <div class="form-group"><h3>Fixed Sites</h3>
                                     <g:hiddenField name="appointmentDate"/>
+                                    <g:hiddenField name="bloodType"/>
                                     <g:each in="${location}" var="row">
                                         <div>
                                             <button onclick="viewByDayAndPlace('${row}')" style="width: 150px; text-align: left" class="btn btn-sm btn-primary">${row}</button>

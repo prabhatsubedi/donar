@@ -16,7 +16,10 @@ class ScheduleController extends CommonController{
 
     def index(){
         List mobileLocationList = ["Mob1", "Mob2", "Mob3"]
-        [location: locationList, mobileLocationList: mobileLocationList, appointData: [] as JSON, hasOwnJs: "schedule"]
+        List<UserAppointment> userAppointmentList = UserAppointment.list()
+        List appointData = appointmentService.makeAdminScheduleData(userAppointmentList);
+
+        [location: locationList, mobileLocationList: mobileLocationList, appointData: appointData as JSON, hasOwnJs: "schedule"]
     }
 
     def byDayPlace(){
@@ -25,9 +28,11 @@ class ScheduleController extends CommonController{
         String appointmentDate = date.format("yyyy-MM-dd");
         println ("appointmentDate..."+appointmentDate)
 
-        List appointData = appointmentService.getAppointmentListByDateAndPlace(date, params.location);
+        List<UserAppointment> userAppointmentList = UserAppointment.findAllByDateAndLocation(date, params.location)
 
-        [appointData: appointData as JSON, location: params.location, appointmentDate: appointmentDate, hasOwnJs: "byDayPlace"]
+        List appointData = appointmentService.makeAppointmentData(userAppointmentList);
+
+        [appointData: appointData as JSON, location: params.location, bloodType: params.bloodType, appointmentDate: appointmentDate, hasOwnJs: "byDayPlace"]
     }
 
     def schedule(){
