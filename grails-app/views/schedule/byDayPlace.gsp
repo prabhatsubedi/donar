@@ -26,7 +26,9 @@
     <script>
         var appointData = ${raw(appointData as String)}
         var appointmentDate = '${appointmentDate}'
-        var schedule_URL = '<g:createLink controller="schedule" action="schedule"/>'
+        var donarInfo_URL = '<g:createLink controller="donarContact" action="donarDetail"/>'
+        var pastDonation_URL = '<g:createLink controller="donarContact" action="pastDonation"/>'
+        var byDayPlace_URL = '<g:createLink controller="schedule" action="byDayPlace"/>'
 
     </script>
 </head>
@@ -39,7 +41,11 @@
                 <h5> ${location}'s Schedules</h5><br/><br/>
                %{-- <h4 style="color: #1ab394;">Blood Type: ${bloodType}</h4><br/>--}%
                 <div style="padding-bottom: 30px;text-align: center;margin-top: -13px;">
-                    <div style="float: left;width: 25%;color: #676a6c;padding: 5px 0 5px 5px;">${bloodType}</div>
+                    <div style="float: left;width: 25%;color: #676a6c;padding: 0 5px 5px;">
+                        <g:hiddenField name="appointmentDate" value="${appointmentDate}"/>
+                        <g:select name="bloodType" from="${bloodTypeMap.entrySet()}" onChange="changeBloodType('${location}')"
+                                  optionKey="key" optionValue="value" value="${bloodType}"/>
+                    </div>
                     <div style="float: left;width: 25%;background: green;color: #fff; margin-bottom: 1px; padding: 5px;">${donated}</div>
                     <div style="float: left;width: 25%;background: red;color: #fff; margin-bottom: 1px; padding: 5px;">${remaining}</div>
                 </div>
@@ -51,6 +57,8 @@
             </div>
             <div class="ibox-content">
                 <div id="schedule-modal-div"></div>
+                <div id="donar-contact-info-div"></div>
+                <div id="past-donation-form-div"></div>
                 <div id="calendar"></div>
             </div>
         </div>

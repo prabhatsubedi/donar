@@ -33,40 +33,34 @@ $(document).ready(function() {
                 $(this).remove();
             }
         },
-        dayClick: function(date, jsEvent, view) {
-
-            /*alert('Clicked on: ' + date.format("MM-DD-YYYY"));
-
-            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-            alert('Current view: ' + view.name);
-
-            // change the day's background color just for fun
-            $(this).css('background-color', 'red');
-            $('#appointmentDate').val(date.format("MM-DD-YYYY"))
-            $('#modal-form').modal()*/
-
-        },
         eventClick: function (event) {
-            /*var parameters = {'id':event.id}
-            jQuery.ajax({
-                type:'POST',
-                data: parameters,
-                url:schedule_URL,
-                success:function (data, textStatus) {
-                    $('#schedule-modal-div').html(data);
-                    $('#schedule-modal').modal();
-                },
-                error:function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Error!")
-                },
-                complete:function (XMLHttpRequest, textStatus) {
-                    //$('#error-message').hide();
-                }
-            });*/
+            if(event.id != '99999999'){
+                var parameters = {'id':event.id}
+                jQuery.ajax({
+                    type:'POST',
+                    data: parameters,
+                    url:donarInfo_URL,
+                    success:function (data, textStatus) {
+                        $('#donar-contact-info-div').html(data);
+                        $('#donar-contact-info').modal();
+                    },
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Error!")
+                    },
+                    complete:function (XMLHttpRequest, textStatus) {
+                        //$('#error-message').hide();
+                    }
+                });
+            }else{
+                alert("This Slot Is Still OPEN!");
+            }
 
-
+        },eventRender: function(event, element) {
+            //element.find(".fc-content").remove();
+            //console.log(element.html())
         },
+        eventOrder: "id",
+
         defaultView: 'agenda',
         /*visibleRange: {
             start: moment('2017-08-01'),
@@ -134,23 +128,8 @@ $(document).ready(function() {
 
 });
 
-/*function viewByDayAndPlace(location){
+function changeBloodType(loc){
     var date = $("#appointmentDate").val();
-    var parameters = {'id':id}
-    jQuery.ajax({
-        type:'POST',
-        data: parameters,
-        url:pastDonation_URL,
-        success:function (data, textStatus) {
-            $('#past-donation-form-div').html(data);
-            $('#past-donation-form').modal();
-
-        },
-        error:function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Error!")
-        },
-        complete:function (XMLHttpRequest, textStatus) {
-            //$('#error-message').hide();
-        }
-    });
-}*/
+    var bloodType = $("#bloodType").val();
+    location.href = byDayPlace_URL+"?date="+date+"&location="+loc+"&bloodType="+bloodType
+}

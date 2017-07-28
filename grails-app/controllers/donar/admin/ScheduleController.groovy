@@ -29,12 +29,15 @@ class ScheduleController extends CommonController{
         println ("appointmentDate..."+appointmentDate)
 
         List<UserAppointment> userAppointmentList = UserAppointment.findAllByDateAndLocation(date, params.location)
-
-        List appointData = appointmentService.makeAppointmentData(userAppointmentList);
+        Map bloodTypeDataMap = ['PLT': [20, 5], 'WB': [40, 30], "DRBC": [5, 10]]
+        String donated = bloodTypeDataMap.get(params.bloodType)[0]
+        String remaining = bloodTypeDataMap.get(params.bloodType)[1]
+        List appointData = appointmentService.makeAdminAppointmentData(date);
+        println "App Data..."+appointData
         Map bloodTypeMap = ['PLT': "Platelet", 'WB': "White Blood", "DRBC": "DRBC"]
 
-        [appointData: appointData as JSON, location: params.location, bloodType: bloodTypeMap.get(params.bloodType), donated: params.donated, remaining: params.remaining,
-         appointmentDate: appointmentDate, hasOwnJs: "byDayPlace"]
+        [appointData: appointData as JSON, location: params.location, bloodType: bloodTypeMap.get(params.bloodType), donated: donated, remaining: remaining,
+         appointmentDate: params.date, hasOwnJs: "byDayPlace", bloodTypeMap: bloodTypeMap]
     }
 
     def schedule(){
