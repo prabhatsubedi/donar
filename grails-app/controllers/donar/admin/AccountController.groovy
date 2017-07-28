@@ -20,8 +20,9 @@ class AccountController extends CommonController{
 
     def index(){
         List accountList = Account.list()
+        Account account = Account.get(accountList.get(0).id)
 
-        [location: locationList, accountList: accountList, hasOwnJs: "account"]
+        [location: locationList, accountList: accountList, account: account, hasOwnJs: "account"]
     }
 
     def accountDetail(){

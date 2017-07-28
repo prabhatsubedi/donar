@@ -18,6 +18,8 @@
     <asset:stylesheet src="plugins/iCheck/custom.css"/>
     <!-- Morris -->
     <asset:stylesheet src="plugins/morris/morris-0.4.3.min.css"/>
+    <!-- Toastr style -->
+    <asset:stylesheet src="toastr/toastr.min.css"/>
     <asset:stylesheet src="animate.css"/>
     <asset:stylesheet src="style"/>
     <script>
@@ -111,7 +113,7 @@
             </nav>
         </div>
 
-        <div class="wrapper wrapper-content">
+        <div class="wrapper wrapper-content animated fadeInRight">
             <g:layoutBody/>
         </div>
         <div class="footer">

@@ -8,8 +8,8 @@ function viewAccountDetails(id){
         data: parameters,
         url:accountInfo_URL,
         success:function (data, textStatus) {
-            $('#account-info-div').html(data);
-            $('#account-info').modal();
+            $('#account-detail').html(data);
+            //$('#account-info').modal();
         },
         error:function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Error!")
