@@ -8,8 +8,8 @@ function viewDonarDetails(id){
         data: parameters,
         url:donarInfo_URL,
         success:function (data, textStatus) {
-            $('#donar-contact-info-div').html(data);
-            $('#donar-contact-info').modal();
+            $('#donor-detail').html(data);
+            //$('#donar-contact-info').modal();
         },
         error:function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Error!")

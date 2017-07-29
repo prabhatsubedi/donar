@@ -12,55 +12,58 @@
 </head>
 
 <body>
-<div class="row animated fadeInDown">
-    <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>Donor Contacts</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="ibox">
             <div class="ibox-content">
-                <div class="table-responsive">
-                    <table id="blood-product-table" class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Donor ID</th>
-                            <th>Name</th>
-                            <th>Blood Type</th>
-                            <th>Phone Number</th>
-                            <th>Email</th>
-                            <th>Birth Date</th>
-                            %{--<th>Role</th>--}%
-                        </tr>
-                        </thead>
-                        <tbody id="blood-product-rbc">
-                            <g:each in="${donarList}" var="row" status="i">
-                                <tr>
-                                    <td>${i+1}</td>
-                                    <td>${row.user.id}</td>
-                                    <td><a href="javascript:void(0)" onclick="viewDonarDetails('${row.user.id}')">${row.user.fullName}</a></td>
-                                    <td>${row.user.bloodType}</td>
-                                    <td>${row.user.phoneNumber}</td>
-                                    <td>${row.user.email}</td>
-                                    <td>${row.user.birthDate?.format("MM/dd/yyyy")}</td>
-                                    %{--<td>${row.authority.authority}</td>--}%
-                                </tr>
-                            </g:each>
-                        </tbody>
-                    </table>
+                <h2>Donor Contacts</h2>
+                <div class="clients-list">
+                    <ul class="nav nav-tabs">
+                        <span class="pull-right small text-muted">${donarList.size()} Donors</span>
+                        <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Donors</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="full-height-scroll">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <tbody>
+                                        <g:each in="${donarList}" var="row" status="i">
+                                            <tr>
+                                                <td class="client-avatar"><asset:image src="profile_small.jpg"/> </td>
+                                                <td><a href="javascript:void(0)" onclick="viewDonarDetails('${row.user.id}')" class="client-link">${row.user.fullName}</a></td>
+                                                <td>${row.user.bloodType}</td>
+                                                <td class="contact-type"><i class="fa fa-phone"> </i></td>
+                                                <td>${row.user.phoneNumber}</td>
+                                                <td class="contact-type"><i class="fa fa-envelope"> </i></td>
+                                                <td>${row.user.email}</td>
+                                                <td class="client-status"><span class="label label-primary">Active</span></td>
+                                            </tr>
+                                        </g:each>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <div id="donar-contact-info-div"></div>
-        <div id="past-donation-form-div"></div>
+    </div>
+    <div class="col-sm-4">
+        <div class="ibox ">
+            <div class="ibox-content">
+                <div class="tab-content">
+                    <div id="donor-detail" class="tab-pane active">
+                        <g:render template="donarInfo" model="${[user: user]}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+<div id="past-donation-form-div"></div>
 </body>
 
 </html>

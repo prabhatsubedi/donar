@@ -18,7 +18,9 @@ class DonarContactController extends CommonController{
         List<UserAuthority> donarList = UserAuthority.findAllByAuthority(Authority.findByAuthority(UserAuthorityEnum.ROLE_DONAR.toString()))
         println "Donar List .."+donarList.size();
 
-        [location: locationList, donarList: donarList, hasOwnJs: "donarContact"]
+        User user = donarList.get(0).user
+
+        [location: locationList, donarList: donarList, user: user, hasOwnJs: "donarContact"]
     }
 
     def donarDetail(){
