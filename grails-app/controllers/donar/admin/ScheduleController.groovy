@@ -33,10 +33,10 @@ class ScheduleController extends CommonController{
         String donated = bloodTypeDataMap.get(params.bloodType)[0]
         String remaining = bloodTypeDataMap.get(params.bloodType)[1]
         List appointData = appointmentService.makeAdminAppointmentData(date);
-        println "App Data..."+appointData
-        Map bloodTypeMap = ['PLT': "Platelet", 'WB': "White Blood", "DRBC": "DRBC"]
+        //println "App Data..."+appointData
+        Map bloodTypeMap = ['PLT': "Platelet", 'WB': "Whole Blood", "DRBC": "DRBC"]
 
-        [appointData: appointData as JSON, location: params.location, bloodType: bloodTypeMap.get(params.bloodType), donated: donated, remaining: remaining,
+        [appointData: appointData as JSON, location: params.location, bloodType: params.bloodType, donated: donated, remaining: remaining,
          appointmentDate: params.date, hasOwnJs: "byDayPlace", bloodTypeMap: bloodTypeMap]
     }
 
