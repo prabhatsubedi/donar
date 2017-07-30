@@ -14,12 +14,13 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Accounts</h5>
+                    <h1><i class="fa fa-user-circle"></i> Accounts</h1>
+
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">589</h1>
+                    <h4 class="no-margins">589</h4>
                     %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <small>Total Active Accounts</small>
+                    <span>Total Active Accounts</span>
                 </div>
             </div>
             %{--<div class="widget navy-bg p-lg text-center">
@@ -35,12 +36,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Appointments</h5>
+                    <h1><i class="fa fa-clock-o"></i> Appointments</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">65</h1>
+                    <h4 class="no-margins">65</h4>
                     %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <small>Donors to Contact Today</small>
+                    <span>Donors to Contact Today</span>
                 </div>
             </div>
             %{--<div class="widget navy-bg p-lg text-center">
@@ -58,12 +59,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Donor Contacts</h5>
+                    <h1><i class="fa fa-address-book"></i> Donor Contacts</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">1024</h1>
+                    <h4 class="no-margins">1024</h4>
                     %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <small>Active Donors</small>
+                    <span>Active Donors</span>
                 </div>
             </div>
             %{--<div class="widget blue-bg p-lg text-center">
@@ -79,12 +80,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>List Generator</h5>
+                    <h1><i class="fa fa-list-ol"></i> List Generator</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">6</h1>
+                    <h4 class="no-margins">6</h4>
                     %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <small>Active Lists</small>
+                    <span>Active Lists</span>
                 </div>
             </div>
             %{--<div class="widget blue-bg p-lg text-center">
@@ -102,12 +103,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Schedule</h5>
+                    <h1><i class="fa fa-calendar"></i> Schedule</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">208</h1>
-                    %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <small>Weekly Appointments Scheduled</small>
+                    <h4 class="no-margins">208</h4>
+                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <span>Weekly Appointments Scheduled</span>
                 </div>
             </div>
             %{--<div class="widget red-bg p-lg text-center">
@@ -123,17 +124,17 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Inventory</h5>
+                    <h1><i class="fa fa-bar-chart"></i> Inventory</h1>
                 </div>
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-md-6">
-                            <h1 class="no-margins">34</h1>
-                            <small>Platelet Gap for week</small>
+                            <h4 class="no-margins">34</h4>
+                            <span>Platelet Gap for week</span>
                         </div>
                         <div class="col-md-6">
-                            <h1 class="no-margins">205</h1>
-                            <small>WB Gap for week</small>
+                            <h4 class="no-margins">205</h4>
+                            <span>WB Gap for week</span>
                         </div>
                     </div>
                 </div>
