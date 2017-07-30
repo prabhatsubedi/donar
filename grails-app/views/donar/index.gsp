@@ -10,7 +10,7 @@
 <body>
 <div class="row animated fadeInDown">
     <div class="col-lg-12">
-        <div class="ibox float-e-margins">
+        <div class="ibox float-e-margins" style="margin-bottom: 5px;margin-top: -20px;">
             <div class="row">
                 <div class="col-lg-4">
                     <h2><b>Blood Type:</b> ${user.bloodType}</h2>
@@ -120,6 +120,24 @@
                 </div>
             </div>--}%
         </g:link>
+        <div class="ibox">
+            <div class="ibox-content product-box">
+                <div class="product-imitation">
+                    <asset:image alt="image" src="reward/1.jpg" />
+                </div>
+                <div class="product-desc">
+                    <span class="product-price">
+                        Your Point: 200
+                    </span>
+                    <div class="m-t text-righ">
+                        <a href="#" class="btn btn-xs btn-outline btn-primary">
+                            Free After You Reach 1000 pts
+                            %{--<i class="fa fa-long-arrow-right"></i> --}%
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-lg-4">
         <g:link controller="reward" action="index">
