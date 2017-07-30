@@ -31,12 +31,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Optimal Donation</h5>
+                    <h1><i class="fa fa-calendar-o"></i> Optimal Donation</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">8/01/17 - 8/10/17</h1>
+                    <h4 class="no-margins">8/01/17 - 8/10/17</h4>
                     %{--<div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>--}%
-                    <small>Platelets</small>
+                    <span>Platelets</span>
                 </div>
             </div>
         %{--<div class="widget navy-bg p-lg text-center" style="min-height: 185px; max-height: 185px">
@@ -58,10 +58,10 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Appointments</h5>
+                    <h1><i class="fa fa-calendar"></i> Appointments</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">08/05/2017</h1>
+                    <h4 class="no-margins">08/05/17</h4>
                     <div class="stat-percent font-bold text-success">Double Red Blood Cells</div>
                     <small>Next Appointment Date</small>
                 </div>
@@ -81,12 +81,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Donation History</h5>
+                    <h1><i class="fa fa-history"></i> Donation History</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">Platelets, 12/12/16</h1>
+                    <h4 class="no-margins">Platelets, 12/12/16</h4>
                     <div class="stat-percent font-bold text-success">100 pts</div>
-                    <small>Last Donated</small>
+                    <span>Last Donated</span>
                 </div>
             </div>
             %{--<div class="widget blue-bg p-lg text-center">
@@ -102,12 +102,13 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Wellness History</h5>
+                    <h1><i class="fa fa-medkit"></i> Wellness History</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">54 Average</h1>
+                    <h4 class="no-margins"><span class="pie" style="display: none;">54/100</span></h4>
+
                     %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <small>Hemoglobin</small>
+                    <span>Hemoglobin</span>
                 </div>
             </div>
             %{--<div class="widget blue-bg p-lg text-center">
@@ -125,12 +126,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Rewards</h5>
+                    <h1><i class="fa fa-gift"></i> Rewards</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">1000pts</h1>
+                    <h4 class="no-margins">1000pts</h4>
                     %{--<div class="stat-percent font-bold text-success">1000pts</div>--}%
-                    <small>Current Points</small>
+                    <span>Current Points</span>
                 </div>
             </div>
             %{--<div class="widget red-bg p-lg text-center">
@@ -146,12 +147,12 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
-                    <h5>Messages</h5>
+                    <h1><i class="fa fa-envelope"></i> Messages</h1>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">3</h1>
+                    <h4 class="no-margins">3</h4>
                     %{--<div class="stat-percent font-bold text-success">1000pts</div>--}%
-                    <small>New Messages</small>
+                    <span>New Messages</span>
                 </div>
             </div>
             %{--<div class="widget red-bg p-lg text-center">
