@@ -105,10 +105,42 @@
                     <h1><i class="fa fa-medkit"></i> Wellness History</h1>
                 </div>
                 <div class="ibox-content">
-                    <h4 class="no-margins"><span class="pie" style="display: none;">54/100</span></h4>
+                    %{--<h4 class="no-margins"><span class="pie" style="display: none;">54/100</span></h4>
 
-                    %{--<div class="stat-percent font-bold text-success">100 pts</div>--}%
-                    <span>Hemoglobin</span>
+                    --}%%{--<div class="stat-percent font-bold text-success">100 pts</div>--}%%{--
+                    <span>Hemoglobin</span>--}%
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h4 class="no-margins">
+                                <span class="bar" style="display: none;">5, 7, 2, 3, 6,2</span>
+                            </h4>
+                            <span>Choles.</span>
+                        </div>
+                        <div class="col-md-2">
+                            <h4 class="no-margins">
+                                <span class="line">5,3,9,6,5,9</span>
+                            </h4>
+                            <span>Pulse</span>
+                        </div>
+                        <div class="col-md-2">
+                            <h4 class="no-margins">
+                                <span class="bar" style="display: none;">5, 7, 2, 3, 6,2</span>
+                            </h4>
+                            <span>Temp.</span>
+                        </div>
+                        <div class="col-md-2">
+                            <h4 class="no-margins">
+                                <span class="line">5,3,9,6,5,9</span>
+                            </h4>
+                            <span>Blood Pressure</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h4 class="no-margins">
+                                <span class="line">5,3,9,6,5,9</span>
+                            </h4>
+                            <span>Hemoglobin</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             %{--<div class="widget blue-bg p-lg text-center">
@@ -120,24 +152,6 @@
                 </div>
             </div>--}%
         </g:link>
-        <div class="ibox">
-            <div class="ibox-content product-box">
-                <div class="product-imitation">
-                    <asset:image alt="image" src="reward/1.jpg" />
-                </div>
-                <div class="product-desc">
-                    <span class="product-price">
-                        Your Point: 200
-                    </span>
-                    <div class="m-t text-righ">
-                        <a href="#" class="btn btn-xs btn-outline btn-primary">
-                            Free After You Reach 1000 pts
-                            %{--<i class="fa fa-long-arrow-right"></i> --}%
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="col-lg-4">
         <g:link controller="reward" action="index">

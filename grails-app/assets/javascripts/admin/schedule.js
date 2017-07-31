@@ -52,8 +52,8 @@ $(document).ready(function() {
         events: event,
         eventRender: function(event, element) {
             element.find(".fc-content").remove();
-            var desc =  '<div><div style="float: left;width: 25%;background: green; margin-bottom: 1px; padding: 5px;">'+event.value[0]+'</div>' +
-                        '<div style="float: left;width: 25%;background: red; margin-bottom: 1px; padding: 5px;">'+event.value[1]+'</div>' +
+            var desc =  '<div><div style="float: left;width: 25%;background: #1ab394; margin-bottom: 1px; padding: 5px;">'+event.value[0]+'</div>' +
+                        '<div style="float: left;width: 25%;background: #ed5565; margin-bottom: 1px; padding: 5px;">'+event.value[1]+'</div>' +
                         '<div style="float: left;color: #676a6c;padding: 5px 0 5px 5px;">'+event.type+'</div></div>'/* +
                         '<div><div style="float: left;width: 25%;background: green; margin-bottom: 1px; padding: 5px;">'+event.wb[0]+'</div>' +
                         '<div style="float: left;width: 25%;background: red; margin-bottom: 1px; padding: 5px;">'+event.wb[1]+'</div>' +
