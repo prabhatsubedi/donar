@@ -104,7 +104,7 @@
                     %{--<span class="label label-success pull-right">Monthly</span>--}%
                     <h1><i class="fa fa-medkit"></i> Wellness History</h1>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" style="margin-top: -4px;">
                     %{--<h4 class="no-margins"><span class="pie" style="display: none;">54/100</span></h4>
 
                     --}%%{--<div class="stat-percent font-bold text-success">100 pts</div>--}%%{--
@@ -132,13 +132,13 @@
                             <h4 class="no-margins">
                                 <span class="line">5,3,9,6,5,9</span>
                             </h4>
-                            <span>Blood Pressure</span>
+                            <span>BP</span>
                         </div>
                         <div class="col-md-3">
                             <h4 class="no-margins">
                                 <span class="line">5,3,9,6,5,9</span>
                             </h4>
-                            <span>Hemoglobin</span>
+                            <span>Hgb.</span>
                         </div>
                     </div>
                 </div>
