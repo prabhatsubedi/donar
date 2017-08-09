@@ -52,7 +52,7 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        Circulate
+                        <asset:image width="50px" height="50px" alt="Logo" class="img-circle" src="logo.png" />
                     </div>
                 </li>
                 <li class="${(controllerName == 'donar')?'active':''}">

@@ -21,8 +21,8 @@
     <div>
         <div>
 
-            <h1 class="logo-name">Circulate</h1>
-
+            %{--<h1 class="logo-name">Circulate</h1>--}%
+            <asset:image width="50px" height="50px" alt="Logo" class="img-circle" src="logo.png" />
         </div>
         <h3>Welcome to Circulate</h3>
         %{--<p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
