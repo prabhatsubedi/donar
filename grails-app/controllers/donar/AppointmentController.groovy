@@ -50,7 +50,7 @@ class AppointmentController {
         String selectedLocation = params.location
         String appointmentDate = params.appointmentDate
         User user = userService.getUser(session.user.id);
-        Date date = Date.parse("MM-dd-yyyy", appointmentDate)
+        Date date = Date.parse("MM/dd/yyyy", appointmentDate)
         List filteredDonationList = donationList.findAll {it.location == params.location}
         List<AccountSchedule> accountScheduleList = AccountSchedule.list().findAll {it.location == params.location && it.date == date}
 
@@ -72,7 +72,7 @@ class AppointmentController {
         userAppointment.setLocation(params.location)
         userAppointment.setDonationType(params.donationType)
 
-        Date date = Date.parse("MM-d-yyyy", params.appointmentDate)
+        Date date = Date.parse("MM/dd/yyyy", params.appointmentDate)
         userAppointment.setDate(date)
 
         appointmentService.createUserAppoinment(userAppointment)
@@ -82,7 +82,7 @@ class AppointmentController {
 
     def saveAppointment(){
         int index = params.int("index")
-        Date date = Date.parse("MM-dd-yyyy", params.appointmentDate)
+        Date date = Date.parse("MM/dd/yyyy", params.appointmentDate)
         AccountSchedule accountSchedule = AccountSchedule.get(params.int("accountScheduleId"))
 
         //Map appointment = donationList.get(index)
