@@ -36,7 +36,7 @@ $(document).ready(function() {
 
             // change the day's background color just for fun
             $(this).css('background-color', 'red');*/
-            $('#appointmentDate').val(date.format("MM-DD-YYYY"))
+            $('#appointmentDate').val(date.format("MM/DD/YYYY"))
             $('#modal-form').modal()
 
         },

@@ -62,6 +62,7 @@ class AppointmentController {
         int index = params.int("donationIndex")
         Map appointment = donationList.get(index)
         println "Appointment Detail...."+appointment
+        println "params...."+params
 
         User user = userService.getUser(session.user.id);
 

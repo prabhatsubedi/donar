@@ -52,7 +52,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group"><label>Donation Type</label>
-                                                <select disabled class="select2_demo form-control" id="donationType"  name="donationType" required="required">
+                                                <select readonly class="select2_demo form-control" id="donationType"  name="donationType" required="required">
                                                     %{--<option value="">Choose Type</option>--}%
                                                     <option value="Platelets">Platelet</option>
                                                     %{--<g:each in="${donationType}" var="l">
